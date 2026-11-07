@@ -1,0 +1,597 @@
+<title>De första bönderna</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: enspaltig lektionssida med illustrerad gryning över åkrarna; skördetoner, guld för det mänskliga, foton av riktiga fynd. */
+:root{
+  --bg:#f6f1e6;
+  --surface:#fffdf6;
+  --ink:#2b2416;
+  --muted:#6f6450;
+  --accent:#49773f;
+  --accent-soft:#e4ecd0;
+  --gold:#a87b24;
+  --gold-soft:#f3e5c6;
+  --band:#e6ecd1;
+  --line:#dcd1b6;
+  --sky:#f7e6bd;
+  --sun:#e9b94c;
+  --hill1:#b9c58b;
+  --hill2:#8fae6b;
+  --hill3:#789a55;
+  --furrow:#67894a;
+  --house:#6b4f33;
+  --roof:#483620;
+  --smoke:#8d8372;
+  --sea:#cfe3ed;
+  --sea2:#aecedf;
+  --seawave:#9cc0d2;
+  --coast:#b5a885;
+  --land:#ece3c8;
+  --farm:#a0c073;
+  --display:"Bricolage Grotesque","Avenir Next","Trebuchet MS",sans-serif;
+  --body:"Atkinson Hyperlegible","Verdana",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15120a; --surface:#221d10; --ink:#f0e8d6; --muted:#b2a78d;
+    --accent:#93c285; --accent-soft:#273219;
+    --gold:#dfa84e; --gold-soft:#3a2d13;
+    --band:#212a14; --line:#49412a;
+    --sky:#26220f; --sun:#c8963a;
+    --hill1:#3a462c; --hill2:#2d3a22; --hill3:#243119; --furrow:#3a5229;
+    --house:#43331f; --roof:#2a1f10; --smoke:#6b6250;
+    --sea:#13252f; --sea2:#0c1b25; --seawave:#1f3a49; --coast:#4e4733;
+    --land:#3b3a2b; --farm:#4e7a3b;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15120a; --surface:#221d10; --ink:#f0e8d6; --muted:#b2a78d;
+  --accent:#93c285; --accent-soft:#273219;
+  --gold:#dfa84e; --gold-soft:#3a2d13;
+  --band:#212a14; --line:#49412a;
+  --sky:#26220f; --sun:#c8963a;
+  --hill1:#3a462c; --hill2:#2d3a22; --hill3:#243119; --furrow:#3a5229;
+  --house:#43331f; --roof:#2a1f10; --smoke:#6b6250;
+  --sea:#13252f; --sea2:#0c1b25; --seawave:#1f3a49; --coast:#4e4733;
+  --land:#3b3a2b; --farm:#4e7a3b;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  margin:0;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+main{max-width:680px; margin:0 auto}
+h1,h2,h3{font-family:var(--display); line-height:1.12; text-wrap:balance; margin:0}
+p{margin:0}
+a{color:var(--accent)}
+
+/* ---------- Hero med gryningslandskap ---------- */
+.hero{position:relative; overflow:hidden; border-radius:0 0 24px 24px;
+  background:linear-gradient(180deg, var(--sky) 0%, var(--bg) 130%);
+  margin:0 -4px; padding:36px 22px 0}
+.eyebrow{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:10px}
+.hero h1{font-size:clamp(32px,7.5vw,48px); font-weight:800}
+.hero .lede{margin-top:14px; color:var(--muted); max-width:48ch}
+.scape{display:block; width:100%; height:auto; margin-top:18px}
+@media (prefers-reduced-motion: no-preference){
+  .puff{animation:puff 5s ease-out infinite}
+  .puff:nth-child(2){animation-delay:1.6s}
+  .puff:nth-child(3){animation-delay:3.2s}
+  @keyframes puff{
+    0%{transform:translateY(0); opacity:0}
+    25%{opacity:.5}
+    100%{transform:translateY(-26px); opacity:0}
+  }
+}
+@media (prefers-reduced-motion: reduce){ .puff{opacity:.35} }
+
+/* ---------- Tidslinje ---------- */
+.timeline{overflow-x:auto; padding:18px 22px 16px; margin:0 -4px}
+.timeline-track{position:relative; display:flex; min-width:600px; max-width:680px; margin:0 auto}
+.timeline-track::before{content:""; position:absolute; top:6px; left:calc(100%/12); right:calc(100%/12); height:2px; background:var(--line)}
+.t-stop{flex:1; position:relative; text-align:center; font-size:12px; line-height:1.35; color:var(--muted); padding-top:20px}
+.t-stop::after{content:""; position:absolute; top:1px; left:50%; transform:translateX(-50%); width:11px; height:11px; border-radius:50%; background:var(--line)}
+.t-stop.done::after{background:var(--muted)}
+.t-stop.here{color:var(--ink); font-weight:700}
+.t-stop.here::after{background:var(--gold); width:15px; height:15px; top:-1px; box-shadow:0 0 0 4px var(--gold-soft)}
+.t-stop .when{display:block; font-size:11px; opacity:.75; font-weight:400}
+.youare{display:inline-block; margin-top:5px; font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--gold); color:var(--surface); border-radius:999px; padding:2px 9px}
+
+/* ---------- Sektioner ---------- */
+section{margin-top:44px}
+.kicker{display:flex; align-items:center; gap:10px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--accent); margin-bottom:10px}
+.kicker::after{content:""; flex:1; height:1px; background:var(--line)}
+section h2{font-size:clamp(23px,5vw,30px); font-weight:700; margin-bottom:12px}
+section p + p{margin-top:12px}
+.note{font-size:13.5px; color:var(--muted); font-style:italic}
+
+/* ---------- Figurer med foton ---------- */
+.fig{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:10px; margin:0}
+.fig img{width:100%; height:auto; display:block; border-radius:9px}
+.fig .tag{position:absolute; top:18px; left:18px; font-size:10.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  background:var(--ink); color:var(--bg); border-radius:999px; padding:3px 10px; opacity:.92}
+.fig figcaption{font-size:13.5px; color:var(--muted); margin-top:9px; line-height:1.5; padding:0 2px}
+.fig .credit{display:block; margin-top:3px; font-size:11.5px; color:var(--muted); opacity:.8}
+.figwide{margin-top:16px}
+.figrow{display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:12px; margin-top:16px; align-items:start}
+.figrow2{display:grid; grid-template-columns:repeat(auto-fit,minmax(225px,1fr)); gap:12px; margin-top:16px; align-items:start}
+
+/* ---------- Berättelsekort ---------- */
+.story{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin-top:16px}
+.story .scene-tag{display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--gold-soft); color:var(--gold); border-radius:999px; padding:3px 11px; margin-bottom:12px}
+.story p + p{margin-top:10px}
+.story p:nth-of-type(1)::first-letter{font-family:var(--display); font-weight:800; font-size:3.1em; float:left; line-height:.85; padding:2px 8px 0 0; color:var(--accent)}
+
+/* ---------- Karta och reglage ---------- */
+.mapbox{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:16px}
+.mapbox svg{display:block; width:100%; height:auto; max-width:100%; border-radius:10px}
+.region{fill:var(--land); stroke:var(--coast); stroke-width:1.1; stroke-linejoin:round; transition:fill .7s}
+.region.farm{fill:var(--farm)}
+.plainland{fill:var(--land); stroke:var(--coast); stroke-width:1.1; stroke-linejoin:round}
+.sprig{opacity:0; transition:opacity .7s}
+.sprig.on{opacity:1}
+@media (prefers-reduced-motion: reduce){ .region,.sprig{transition:none} }
+.map-controls{margin-top:16px}
+.yearline{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
+.yearlabel{font-family:var(--display); font-weight:800; font-size:25px; font-variant-numeric:tabular-nums}
+.play{width:42px; height:42px; border-radius:50%; border:1.5px solid var(--line); background:var(--surface); color:var(--accent);
+  font-size:15px; cursor:pointer; display:grid; place-items:center; padding:0}
+.play:hover{border-color:var(--accent)}
+.play:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+input[type="range"]{width:100%; margin-top:10px; accent-color:var(--gold)}
+.ticks{display:flex; justify-content:space-between; font-size:11px; color:var(--muted); font-variant-numeric:tabular-nums; margin-top:2px}
+.epoch{margin-top:12px; min-height:4.6em; color:var(--muted); border-left:4px solid var(--gold);
+  background:var(--bg); border-radius:0 10px 10px 0; padding:10px 14px}
+.epoch strong{color:var(--ink)}
+
+/* ---------- Fyndkort ---------- */
+.finds{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:16px}
+.find{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+.find>button{all:unset; display:flex; align-items:center; gap:10px; width:100%; box-sizing:border-box;
+  padding:14px 16px; cursor:pointer; font-family:var(--display); font-weight:700; font-size:16px; color:var(--ink)}
+.find>button:hover{background:var(--accent-soft)}
+.find>button:focus-visible{outline:3px solid var(--accent); outline-offset:-3px; border-radius:14px}
+.find>button .chev{margin-left:auto; color:var(--muted); transition:transform .2s}
+.find.open>button .chev{transform:rotate(90deg)}
+.find .panel{padding:0 16px 14px; font-size:15px; color:var(--muted)}
+.find .panel strong{color:var(--ink)}
+.find .panel img{width:100%; height:auto; display:block; border-radius:9px; margin-top:10px}
+.find .panel .credit{display:block; margin-top:4px; font-size:11.5px; color:var(--muted); opacity:.8}
+.find svg{flex:none}
+
+/* ---------- Italien-band ---------- */
+.italy{background:var(--gold-soft); border-radius:16px; padding:22px 24px; margin-top:16px}
+.italy .kicker{color:var(--gold)}
+.italy .kicker::after{background:color-mix(in srgb, var(--gold) 30%, transparent)}
+.italy p + p{margin-top:12px}
+.italy .fig{background:var(--surface)}
+
+/* ---------- Samtalsfrågor ---------- */
+.talk{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px; counter-reset:q}
+.talk li{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px 14px 54px; position:relative}
+.talk li::before{counter-increment:q; content:counter(q);
+  position:absolute; left:14px; top:13px; width:27px; height:27px; border-radius:50%;
+  background:var(--accent); color:var(--surface); font-family:var(--display); font-weight:700;
+  display:grid; place-items:center; font-size:14px}
+
+/* ---------- Ordlista ---------- */
+.words{display:grid; gap:10px; margin-top:16px}
+.word{background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--accent); border-radius:12px; padding:12px 16px}
+.word b{font-family:var(--display); font-size:18px}
+.word span{color:var(--muted); font-size:15px; display:block}
+.retell{margin-top:16px; padding:16px 18px; border-radius:14px; background:var(--band)}
+
+/* ---------- Föräldradel ---------- */
+details.parents{margin-top:48px; border-top:1px dashed var(--line); padding-top:14px; color:var(--muted); font-size:14px}
+details.parents summary{cursor:pointer; font-weight:700; color:var(--muted)}
+details.parents summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+details.parents h3{font-size:15px; margin:16px 0 6px; color:var(--ink)}
+details.parents ul{margin:6px 0 0; padding-left:20px}
+details.parents li{margin-top:4px}
+
+footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:14px;
+  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+</style>
+<main>
+
+<header class="hero" id="topp">
+  <p class="eyebrow">Svensk historia &middot; Del 1 &middot; Lektion 2</p>
+  <h1>De första bönderna</h1>
+  <p class="lede">Förra gången smälte isen bort och jägare vandrade in i ett alldeles nytt land. I tusentals år levde människor här av jakt, fiske och det naturen gav. Nu händer något som långsamt ändrar nästan allt: människor börjar odla sin mat.</p>
+  <svg class="scape" viewBox="0 0 800 200" role="img" aria-label="Illustration: gryning över en gård för flera tusen år sedan. Ett långhus med rök ur taket, betande kor och sädesax i förgrunden.">
+    <circle cx="612" cy="118" r="54" fill="var(--sun)"/>
+    <path d="M296 54 q7 -7 14 0 M320 44 q6 -6 12 0" stroke="var(--muted)" stroke-width="2" fill="none" stroke-linecap="round" opacity=".55"/>
+    <path fill="var(--hill1)" d="M0 124 C120 102 250 116 380 106 C510 96 640 112 800 94 L800 200 L0 200 Z"/>
+    <path fill="var(--hill2)" d="M0 154 C150 134 320 148 480 140 C620 134 720 144 800 134 L800 200 L0 200 Z"/>
+    <g fill="var(--smoke)">
+      <circle class="puff" cx="172" cy="90" r="4"/>
+      <circle class="puff" cx="177" cy="86" r="5"/>
+      <circle class="puff" cx="169" cy="81" r="6"/>
+    </g>
+    <rect x="128" y="124" width="84" height="22" fill="var(--house)"/>
+    <polygon points="120,126 170,98 220,126" fill="var(--roof)"/>
+    <rect x="162" y="131" width="13" height="15" fill="var(--roof)"/>
+    <path fill="var(--hill3)" d="M0 184 C200 166 430 178 800 160 L800 200 L0 200 Z"/>
+    <g stroke="var(--furrow)" stroke-width="2" fill="none" opacity=".65">
+      <path d="M30 197 C190 183 410 189 750 169"/>
+      <path d="M110 200 C260 189 480 193 800 177"/>
+      <path d="M210 200 C340 194 560 197 800 186"/>
+    </g>
+    <g fill="var(--house)">
+      <ellipse cx="540" cy="169" rx="16" ry="9"/>
+      <rect x="529" y="173" width="4" height="10"/>
+      <rect x="548" y="173" width="4" height="10"/>
+      <circle cx="558" cy="161" r="5.5"/>
+      <ellipse cx="601" cy="175" rx="13" ry="7.5"/>
+      <rect x="592" y="178" width="3.5" height="9"/>
+      <rect x="607" y="178" width="3.5" height="9"/>
+      <circle cx="615" cy="169" r="4.5"/>
+    </g>
+    <g stroke="var(--gold)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".9">
+      <path d="M46 200 V176 M46 183 l-6 -7 M46 183 l6 -7 M46 191 l-6 -7 M46 191 l6 -7"/>
+      <path d="M66 200 V171 M66 179 l-6 -7 M66 179 l6 -7 M66 187 l-6 -7 M66 187 l6 -7"/>
+      <path d="M86 200 V178 M86 185 l-6 -7 M86 185 l6 -7 M86 193 l-6 -7 M86 193 l6 -7"/>
+    </g>
+  </svg>
+</header>
+
+<nav class="timeline" aria-label="Tidslinje över hela kursen">
+  <div class="timeline-track">
+    <div class="t-stop done">Isen släpper taget<span class="when">ca 14 000 år sedan</span></div>
+    <div class="t-stop here">De första bönderna<span class="when">ca 6 000 år sedan</span><br><span class="youare">du är här</span></div>
+    <div class="t-stop">Bronsåldern<span class="when">ca 3 500 år sedan</span></div>
+    <div class="t-stop">Vikingatiden<span class="when">ca 1 100 år sedan</span></div>
+    <div class="t-stop">Medeltiden<span class="when">ca 800 år sedan</span></div>
+    <div class="t-stop">Idag<span class="when">2026</span></div>
+  </div>
+</nav>
+
+<section id="gata">
+  <p class="kicker">En gåta</p>
+  <h2>En ko i en båt?</h2>
+  <p>Här är något konstigt att tänka på: det har inte alltid funnits kor i Norden. Inga får, inga grisar, inga getter. Inget vete och inget korn på någon åker. Allt det där kom hit med människor &ndash; och de allra första korna härstammade från vilda uroxar som tämjts långt borta i Mellanöstern, för över 10 000 år sedan.</p>
+  <p>Och sista biten hit, över sunden och till öarna? Då måste djuren ha åkt båt. Föreställ dig det: en orolig ko som står och stampar i en liten träbåt, på väg över blänkande vatten mot en ny värld.</p>
+  <figure class="fig figwide">
+    <span class="tag">Riktig grottmålning</span>
+    <img src="bilder/02/lascaux.jpg" alt="Grottmålning: stora uroxar, hästar och hjortar målade i svart och ockra på en ljus grottvägg." width="880" height="577" loading="lazy">
+    <figcaption>Så såg uroxen ut &ndash; kons vilda förfader. Istidens jägare målade dem i Lascauxgrottan i Frankrike för ungefär 17 000 år sedan, på den tiden vår förra lektion handlade om.
+      <a class="credit" href="https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg">Public domain &middot; via Wikimedia Commons</a></figcaption>
+  </figure>
+  <p class="note">Hur hamnade kon i båten? Det är en resa på fem tusen år &ndash; du får dra i den själv lite längre ner.</p>
+</section>
+
+<section id="berattelse">
+  <p class="kicker">Berättelsen</p>
+  <h2>Morgon på gården</h2>
+  <p>För ungefär 6 000 år sedan började människor i södra Norden odla korn och vete och hålla boskap. I stället för att flytta dit maten fanns, lät man maten växa hemma. Man byggde långhus av trä och lera, röjde åkrar &ndash; och stannade. Född, uppvuxen och gammal på samma plats: det var något alldeles nytt.</p>
+  <div class="story">
+    <span class="scene-tag">Påhittad scen &ndash; byggd på riktiga fynd</span>
+    <p>Tänk dig en pojke för 5 500 år sedan, i det som idag är Västergötland. Han vaknar i långhuset av att det luktar rök och gröt &ndash; mamma har malt korn på malstenen sedan gryningen. Hela dagen vallar han kor i skogsbrynet med sin syster, medan pappa hugger och bränner sly för att göra en ny åker.</p>
+    <p>På kvällen kommer gäster: skogsfolket från sjöarna, som fortfarande lever av jakt och fiske som alla gjorde förr. De talar annorlunda, och de har med sig skinn och torkad fisk som de byter mot en blänkande slipad yxa. Innan pojken somnar ser han stengraven på kullen, där farfars farföräldrar vilar. Hans familj har bott här så länge att till och med de döda är grannar.</p>
+  </div>
+  <div class="figrow">
+    <figure class="fig">
+      <span class="tag">Riktig plats &ndash; idag</span>
+      <img src="bilder/02/ekornavallen.jpg" alt="En gånggrift: stora gråa stenhällar i en gräsbevuxen hög under blå himmel med moln." width="880" height="586" loading="lazy">
+      <figcaption>Stengraven på kullen: gånggrift på Ekornavallen i Falbygden, byggd av bondefamiljer för ca 5 300 år sedan. Den står kvar.
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Ekornavallen_-_KMB_-_16000300031994.jpg">Foto: Bengt A. Lundberg / Riksantikvarieämbetet &middot; CC BY 2.5</a></figcaption>
+    </figure>
+    <figure class="fig">
+      <span class="tag">Teckning från 1877</span>
+      <img src="bilder/02/montelius.jpg" alt="Gammal svartvit gravyr: en människa står bredvid stora stenhällar uppe på en gräskulle." width="880" height="563" loading="lazy">
+      <figcaption>Redan för 150 år sedan undrade forskare över gravarna. Så här ritade Oscar Montelius en gånggrift vid Luttra år 1877.
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:G%C3%A5nggrift_vid_Luttra_i_Vesterg%C3%B6tland_(Montelius,_Sveriges_hednatid_(1877)_sid_55_fig_93)021.jpg">Public domain</a></figcaption>
+    </figure>
+    <figure class="fig">
+      <span class="tag">Riktigt fynd</span>
+      <img src="bilder/02/flintyxa.jpg" alt="En hand håller ett avlångt slipat yxblad av grå och beige flinta." width="880" height="376" loading="lazy">
+      <figcaption>En slipad flintyxa från Karleby i Falbygden &ndash; precis en sådan &rdquo;blänkande yxa&rdquo; som i berättelsen.
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Flintyxa_fr_Karleby_63,_V%C3%A4sterg%C3%B6tland_0826.jpg">Foto: Achird &middot; CC BY-SA 3.0</a></figcaption>
+    </figure>
+  </div>
+</section>
+<section id="karta">
+  <p class="kicker">Prova själv</p>
+  <h2>Dra i tiden och följ jordbrukets resa</h2>
+  <p>Att odla mat uppfanns inte här &ndash; kunskapen, fröna och djuren vandrade hit genom hela Europa, från by till by. Dra i reglaget (eller tryck på play) och se resan. Den hade ingen brådska: i snitt flyttade åkrarna bara ungefär en kilometer per år. Men de gav sig aldrig.</p>
+  <div class="mapbox">
+    <svg viewBox="0 0 460 400" role="img" aria-label="Förenklad karta över Europa där områden blir till åkermark allt eftersom tiden går, från bördiga halvmånen i sydost till Sydskandinavien i norr.">
+      <defs>
+        <linearGradient id="seagrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--sea)"/>
+          <stop offset="1" style="stop-color:var(--sea2)"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="460" height="400" fill="url(#seagrad)"/>
+      <g stroke="var(--seawave)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".8">
+        <path d="M30 86 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M150 300 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M60 206 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M340 356 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M400 80 q7 -5 14 0 q7 5 14 0"/>
+      </g>
+      <!-- Regioner (tänds i tur och ordning) -->
+      <g class="region" id="r-levanten" data-year="11500">
+        <path d="M404 316 L428 308 L452 312 L458 352 L444 378 L420 372 L408 346 Z"/>
+      </g>
+      <g class="region" id="r-anatolien" data-year="10000">
+        <path d="M348 288 L376 274 L414 272 L438 282 L432 302 L398 312 L362 308 Z"/>
+      </g>
+      <g class="region" id="r-grekland" data-year="8500">
+        <path d="M294 306 L314 300 L324 318 L310 340 L296 330 Z"/>
+        <ellipse cx="318" cy="354" rx="9" ry="3.5"/>
+      </g>
+      <g class="region" id="r-balkan" data-year="8200">
+        <path d="M280 250 L306 246 L330 254 L338 278 L326 300 L302 294 L286 304 L276 280 Z"/>
+      </g>
+      <g class="region" id="r-italien" data-year="8000">
+        <path d="M214 258 L236 250 L252 262 L246 280 L258 300 L274 318 L268 334 L250 328 L238 306 L226 286 L212 272 Z"/>
+        <ellipse cx="246" cy="348" rx="12" ry="6"/>
+        <ellipse cx="200" cy="312" rx="7" ry="12"/>
+      </g>
+      <g class="region" id="r-osteuropa" data-year="7500">
+        <path d="M332 158 L368 138 L420 130 L458 138 L458 248 L420 260 L376 256 L342 242 L330 208 Z"/>
+      </g>
+      <g class="region" id="r-centraleuropa" data-year="7500">
+        <path d="M190 252 L186 214 L196 184 L226 168 L268 162 L304 170 L324 192 L328 224 L310 248 L268 258 L224 262 Z"/>
+      </g>
+      <g class="region" id="r-frankrike" data-year="7500">
+        <path d="M100 256 L98 224 L118 202 L158 196 L184 210 L188 240 L170 262 L128 268 Z"/>
+      </g>
+      <g class="region" id="r-iberia" data-year="7500">
+        <path d="M32 290 L60 268 L98 262 L112 282 L104 310 L118 322 L106 342 L70 348 L40 330 Z"/>
+      </g>
+      <g class="region" id="r-brittiska" data-year="6000">
+        <path d="M126 100 L146 96 L156 118 L150 148 L136 170 L120 160 L126 134 Z"/>
+        <path d="M94 128 L112 122 L118 140 L106 156 L90 146 Z"/>
+      </g>
+      <g class="region" id="r-sydskand" data-year="6000">
+        <path d="M218 92 L238 76 L262 72 L282 84 L278 108 L258 126 L234 128 L220 112 Z"/>
+        <path d="M194 122 L212 114 L222 128 L210 142 L196 138 Z"/>
+      </g>
+      <!-- Norden i norr och Finland: förblir jägarland under hela resan -->
+      <path class="plainland" d="M226 86 L218 58 L230 30 L252 10 L284 6 L306 16 L300 44 L286 66 L262 74 L238 80 Z"/>
+      <path class="plainland" d="M312 26 L344 18 L366 36 L362 70 L340 90 L316 80 L308 52 Z"/>
+      <!-- Ax-markörer -->
+      <g class="sprig" data-year="11500" transform="translate(424,336)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="10000" transform="translate(394,292)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="8500" transform="translate(308,320)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="8200" transform="translate(306,272)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="8000" transform="translate(234,270)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="7500" transform="translate(392,196)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="7500" transform="translate(256,210)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="7500" transform="translate(142,232)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="7500" transform="translate(70,304)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="6000" transform="translate(138,128)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <g class="sprig" data-year="6000" transform="translate(248,100)"><path d="M0 9 V-7 M0 -2 L-5 -7 M0 -2 L5 -7 M0 4 L-5 -1 M0 4 L5 -1" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <!-- Etiketter -->
+      <text x="60" y="68" font-size="13" fill="var(--muted)">hit är jordbruket på väg</text>
+      <path d="M186 74 L214 98" stroke="var(--muted)" stroke-width="1.5" fill="none"/>
+      <path d="M206 88 L215 99 L201 100" stroke="var(--muted)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+      <text x="206" y="296" font-size="13" fill="var(--muted)" text-anchor="end">Italien</text>
+      <text x="200" y="338" font-size="10" fill="var(--muted)" text-anchor="middle">Sardinien</text>
+      <text x="150" y="368" font-size="13" fill="var(--muted)" font-style="italic">Medelhavet</text>
+      <text x="455" y="394" font-size="12" fill="var(--muted)" text-anchor="end">&#9733; bördiga halvmånen &ndash; här började det</text>
+      <text x="430" y="348" font-size="13" fill="var(--gold)" text-anchor="middle">&#9733;</text>
+      <text x="12" y="394" font-size="12" fill="var(--muted)">Förenklad karta &ndash; ungefärliga årtal</text>
+    </svg>
+    <div class="map-controls">
+      <div class="yearline">
+        <p class="yearlabel">För <span id="yearNum">11 500</span> år sedan</p>
+        <button type="button" id="playBtn" class="play" aria-label="Spela upp resan">&#9654;</button>
+      </div>
+      <input type="range" id="timeSlider" min="0" max="120" value="0" step="1"
+        aria-label="Tid: dra från 11 500 till 5 500 år sedan">
+      <div class="ticks" aria-hidden="true"><span>11 500</span><span>9 500</span><span>7 500</span><span>5 500</span></div>
+      <p class="epoch" id="epochText" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section id="hurvetvi">
+  <p class="kicker">Detektivarbetet</p>
+  <h2>Hur vet vi att det gick till så?</h2>
+  <p>Inte heller bönderna kunde skriva. Men den som stannar på samma plats i hundratals år lämnar djupa spår. Tryck på fynden och se vad de avslöjar.</p>
+  <div class="finds">
+    <div class="find" id="find1">
+      <button type="button" aria-expanded="false" aria-controls="panel1">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 24 V6 M13 10 L8 5 M13 10 L18 5 M13 15 L8 10 M13 15 L18 10 M13 20 L8 15 M13 20 L18 15" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+        Brända sädeskorn
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel1" hidden>
+        <p><strong>Vad de avslöjar:</strong> i gamla eldstäder hittas förkolnade korn av vete och korn. Med kol&nbsp;14-metoden går det att räkna ut när de odlades &ndash; och sädesslagen är samma som de som först odlades i Mellanöstern. Fröna bär sin egen reseberättelse.</p>
+      </div>
+    </div>
+    <div class="find" id="find2">
+      <button type="button" aria-expanded="false" aria-controls="panel2">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 8 L7 3 H19 L21 8 C18 10 17 12 17 15 L16 23 H10 L9 15 C9 12 8 10 5 8 Z" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/></svg>
+        Krukskärvor
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel2" hidden>
+        <p><strong>Vad de avslöjar:</strong> bönderna gjorde krukor av bränd lera med trattformad öppning. I leran sitter avtryck av sädeskorn &ndash; och inuti skärvorna har forskare hittat rester av mjölkfett. Alltså mjölkade man korna, kanske till något som liknade fil eller ost.</p>
+        <img src="bilder/02/skarpsalling.jpg" alt="Lerkruka med fint inristade mönster av linjer och trianglar, utställd i en glasmonter." width="820" height="546" loading="lazy">
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Skarpsallingkarret.jpg">Skarpsallingkärlet, lergods gjort av bondefolk för ca 5 200 år sedan (Nationalmuseet, Köpenhamn). Foto: Knud Winckelmann &middot; CC BY-SA 3.0</a>
+      </div>
+    </div>
+    <div class="find" id="find3">
+      <button type="button" aria-expanded="false" aria-controls="panel3">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M9 3 C17 9 17 17 9 23 M17 3 C9 9 9 17 17 23 M10 8 H16 M10 13 H16 M10 18 H16" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+        DNA i gravarna
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel3" hidden>
+        <p><strong>Vad det avslöjar:</strong> en bonde som begravdes i en stengrav i Västergötland hade DNA som mest liknar folk vid Medelhavet &ndash; allra mest dagens Sardinienbor i Italien! Jägarfolket på kusterna hade helt annat DNA. Så vi vet att jordbruket kom hit med inflyttade människor, som sedan blandades med jägarna till ett folk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="italien">
+  <div class="italy">
+    <p class="kicker">Samtidigt i Italien</p>
+    <h2>Mannen i isen</h2>
+    <p>Samtidigt som bönderna i Västergötland byggde sina stengravar, för ungefär 5 300 år sedan, vandrade en man högt uppe i Alperna, på dagens gräns mellan Italien och Österrike. Där dog han &ndash; och snö och is bevarade honom, med kläder och packning, ända tills vandrare hittade honom år 1991. I förra lektionen smälte isen fram ett helt land. Den här gången hade isen sparat en människa åt oss i fem tusen år.</p>
+    <p>Han kallas Ötzi. Han bar skor stoppade med hö, björnskinnsmössa, pilbåge och kärl av björknäver &ndash; och i magen hade han vete: han hörde till böndernas värld, precis som pojken i Västergötland. En sak till: hans yxa var gjord av koppar, en metall. Kom ihåg det till nästa lektion! Röntgen visar att han dog av en pilspets i axeln &ndash; det är belägg. Men varför någon sköt honom? Det vet ingen. Där slutar spåren, och gissningarna börjar.</p>
+    <div class="figrow2">
+      <figure class="fig">
+        <span class="tag">Riktigt fynd</span>
+        <img src="bilder/02/kopparyxa.jpg" alt="Ett mörkt yxblad av koppar ligger på en svart monter. Under syns museiskyltar på tyska, italienska och engelska." width="715" height="880" loading="lazy">
+        <figcaption>Ötzis kopparyxa i museet i Bolzano i Italien. Titta på skylten under &ndash; den är på italienska: <em>&rdquo;Ascia in rame di Ötzi&rdquo;</em>.
+          <a class="credit" href="https://commons.wikimedia.org/wiki/File:Iceman%27s_Copper_Axe.jpg">Foto: AleksandrLaptev &middot; CC BY-SA 4.0</a></figcaption>
+      </figure>
+      <figure class="fig">
+        <span class="tag">Rekonstruktion &ndash; teckning</span>
+        <img src="bilder/02/otzisko.jpg" alt="Teckning av en sko av läder med snören runt om och flätat gräs inuti." width="880" height="531" loading="lazy">
+        <figcaption>Så kan Ötzis sko ha sett ut: läder utanpå, nät av snören och varmt hö inuti. Teckning av en rekonstruktion &ndash; alltså forskares bästa gissning utifrån fyndet.
+          <a class="credit" href="https://commons.wikimedia.org/wiki/File:%C3%96tzischuh_2.jpg">Teckning: Donja Malhotra &middot; CC BY-SA 2.5</a></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="prata">
+  <p class="kicker">Prata tillsammans</p>
+  <h2>Tre saker att fundera på</h2>
+  <ol class="talk">
+    <li>Bönder fick jobba hårdare än jägare, och maten blev mer enformig. Ändå blev fler och fler bofasta. Varför tror du? Vilket liv hade du valt &ndash; jägarens eller bondens?</li>
+    <li>Jägarfolket och bondefolket levde grannar i hundratals år. De bytte saker och kunskap, och med tiden blandades de till ett folk. Vad kan grannar som lever helt olika lära av varandra?</li>
+    <li>Kon, vetet och kunskapen att odla kom hit från andra länder, i små steg, med vanliga familjer. Finns det något i din vardag &ndash; mat, ord, vanor &ndash; som också har rest långt för att nå dig?</li>
+  </ol>
+</section>
+
+<section id="ord">
+  <p class="kicker">Tre svenska ord</p>
+  <h2>Ta med dig orden</h2>
+  <div class="words">
+    <div class="word"><b>bofast</b><span>att bo kvar på samma ställe, i stället för att flytta dit maten finns</span></div>
+    <div class="word"><b>boskap</b><span>tamdjur på en gård &ndash; kor, får, getter och grisar</span></div>
+    <div class="word"><b>skörd</b><span>det man samlar in från åkern när säden är mogen</span></div>
+  </div>
+  <div class="retell">
+    <p><strong>Till sist:</strong> berätta lektionen med egna ord, som om du berättade den för en kompis. Börja gärna med: <em>&rdquo;Tänk dig en ko i en liten båt&hellip;&rdquo;</em></p>
+  </div>
+</section>
+
+<details class="parents">
+  <summary>För föräldern: källor, tidsplan och osäkerheter</summary>
+  <h3>Förslag på tidsplan (ca 10 min)</h3>
+  <ul>
+    <li>1 min &ndash; gåtan om kon i båten och uroxarna från Lascaux</li>
+    <li>2 min &ndash; berättelsen om morgonen på gården; titta på de tre bilderna</li>
+    <li>3 min &ndash; kartan: tryck på play eller låt barnet dra, stanna vid Italien</li>
+    <li>1 min &ndash; fyndkorten (särskilt DNA-kortet, som knyter ihop kartan)</li>
+    <li>1 min &ndash; Ötzi och bilderna på yxan och skon</li>
+    <li>2 min &ndash; samtalsfrågorna, orden och återberättandet</li>
+  </ul>
+  <h3>Källor</h3>
+  <ul>
+    <li>Historiska museet: bondestenåldern och trattbägarkulturen (historiska.se)</li>
+    <li>Skoglund m.fl. 2012, <em>Science</em>: DNA från bondegraven i Gökhem (Falbygden) och jägarboplatsen Ajvide (Gotland) &ndash; bonden låg genetiskt närmast dagens sydeuropéer, särskilt sardinier</li>
+    <li>Ammerman &amp; Cavalli-Sforza: jordbrukets spridning över Europa i genomsnitt ca 1 km/år (&rdquo;wave of advance&rdquo;)</li>
+    <li>Isaksson &amp; Hallgren 2012: mjölkfett i svensk trattbägarkeramik (Skogsmossen)</li>
+    <li>Sydtyrolens arkeologimuseum i Bolzano: Ötzi, ca 3300 f.Kr. (iceman.it)</li>
+    <li>Västergötlands museum och Riksantikvarieämbetet: Falbygdens gånggrifter</li>
+  </ul>
+  <h3>Bildkällor (alla fria licenser, länkade i bildtexterna)</h3>
+  <ul>
+    <li>Uroxar, Lascauxgrottan &ndash; public domain, Wikimedia Commons</li>
+    <li>Gånggrift, Ekornavallen &ndash; Bengt A. Lundberg / Riksantikvarieämbetet (KMB), CC BY 2.5</li>
+    <li>Gånggrift vid Luttra &ndash; gravyr ur Montelius, <em>Sveriges hednatid</em> (1877), public domain</li>
+    <li>Flintyxa från Karleby &ndash; foto Achird, CC BY-SA 3.0</li>
+    <li>Skarpsallingkärlet (Nationalmuseet, Köpenhamn) &ndash; foto Knud Winckelmann, CC BY-SA 3.0</li>
+    <li>Ötzis kopparyxa &ndash; foto AleksandrLaptev, CC BY-SA 4.0</li>
+    <li>Ötzis sko, rekonstruktionsteckning &ndash; Donja Malhotra, CC BY-SA 2.5</li>
+  </ul>
+  <h3>Osäkerheter och förenklingar</h3>
+  <ul>
+    <li>Kartans årtal är avrundade medelvärden; spridningen gick i ryck, snabbare längs kuster och floder, och forskare anger olika årtal för olika platser.</li>
+    <li>Jordbruket spreds både genom att människor flyttade och genom att kunskap togs över. DNA-studierna pekar på att inflyttning dominerade i Skandinavien, men jägarbefolkningen levde kvar länge (gropkeramiska kulturen) och folken blandades över tid.</li>
+    <li>Jordbruk uppfanns oberoende på flera håll i världen (bl.a. Kina, Amerika, Nya Guinea, Afrika). Kartan visar bara vägen till Europa och är beskuren &ndash; även Nordafrika och Egypten nåddes söderifrån.</li>
+    <li>&rdquo;Kor i båtar&rdquo; är en slutsats av att tamdjur nådde öar och över sund &ndash; ingen sådan båtlast har hittats bevarad.</li>
+    <li>Scenen på gården är fiktion utifrån fyndbilden: långhus, malstenar, trattbägare, slipade yxor och gånggrifter i Falbygden. Hjältescenens landskapsbild i sidhuvudet är en stiliserad illustration, ingen rekonstruktion.</li>
+    <li>Ötzi: pilspetsen i axeln är belägg, motiv och händelseförlopp är tolkningar. Hans kopparyxa hör till en tid då metall just börjat användas söder om Alperna &ndash; metallernas väg norrut kommer i lektion 3.</li>
+    <li>I norra Skandinavien fortsatte jakt, fiske och samlande i tusentals år; samisk historia får eget utrymme i del 6.</li>
+  </ul>
+</details>
+
+<footer>
+  <span>Del 1 &middot; Lektion 2 av 20</span>
+  <span><a href="https://claude.ai/artifact/L4VSE7AV435G2d3v7KzxPw">&larr; Lektion 1: Isen och de första människorna</a></span>
+  <span>Nästa gång: Bronsålderns förbindelser</span>
+</footer>
+
+</main>
+<script>
+(function(){
+  var slider = document.getElementById('timeSlider');
+  var yearNum = document.getElementById('yearNum');
+  var epochText = document.getElementById('epochText');
+  var playBtn = document.getElementById('playBtn');
+  var marked = document.querySelectorAll('.region[data-year], .sprig[data-year]');
+
+  function epochFor(year){
+    if (year >= 11000) return '<strong>Det börjar i bördiga halvmånen.</strong> Människor sår de första åkrarna och tämjer får, getter, kor och svin. Ingen av dem vet att idén ska vandra över en hel kontinent.';
+    if (year >= 9200) return '<strong>Kunskapen går i arv.</strong> Byarna blir fler och fler och sprider sig sakta västerut, mot havet.';
+    if (year >= 8200) return '<strong>Europas första bönder.</strong> Odlandet når Grekland. Härifrån reser familjer vidare med båt längs kusterna – med frön och djur ombord.';
+    if (year >= 7300) return '<strong>Två vägar genom Europa.</strong> Båtarna följer Medelhavets kust till Italien, Frankrike och Spanien. Samtidigt vandrar andra bönder uppför floderna, in genom Europas skogar.';
+    if (year >= 6300) return '<strong>By för by norrut.</strong> I Norden lever man som förut, av jakt, fiske och samlande. Men söderifrån närmar sig något nytt.';
+    if (year >= 5800) return '<strong>Nu är det här!</strong> För ungefär 6 000 år sedan når åkrarna och boskapen Sydskandinavien och Brittiska öarna – med människor som flyttar in och grannar som lär sig.';
+    return '<strong>Åkrarna är här för att stanna.</strong> Men längst i norr fortsätter jakt och fiske i tusentals år till. Och i söder ska bönderna snart bygga gravar av jättestenar.';
+  }
+
+  function render(){
+    var year = 11500 - slider.value * 50;
+    yearNum.textContent = year.toLocaleString('sv-SE');
+    epochText.innerHTML = epochFor(year);
+    marked.forEach(function(el){
+      var lit = year <= +el.getAttribute('data-year');
+      el.classList.toggle(el.classList.contains('region') ? 'farm' : 'on', lit);
+    });
+  }
+
+  // Uppspelning
+  var playing = false, rafId = null, pos = 0;
+  function setPlaying(p){
+    playing = p;
+    playBtn.innerHTML = p ? '&#10074;&#10074;' : '&#9654;';
+    playBtn.setAttribute('aria-label', p ? 'Pausa' : 'Spela upp resan');
+    if (p){ pos = +slider.value; rafId = requestAnimationFrame(tick); }
+    else if (rafId) cancelAnimationFrame(rafId);
+  }
+  function tick(){
+    if (!playing) return;
+    pos += 0.2;
+    if (pos >= 120){ pos = 120; slider.value = 120; render(); setPlaying(false); return; }
+    slider.value = Math.round(pos);
+    render();
+    rafId = requestAnimationFrame(tick);
+  }
+  playBtn.addEventListener('click', function(){
+    if (!playing && +slider.value >= 120) { slider.value = 0; render(); }
+    setPlaying(!playing);
+  });
+  slider.addEventListener('input', function(){ if (playing) setPlaying(false); render(); });
+  render();
+
+  // Fyndkorten
+  document.querySelectorAll('.find > button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+      btn.parentElement.classList.toggle('open', !open);
+    });
+  });
+})();
+</script>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Isen och de första människorna</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: en lugn enspaltig lektionssida; kyliga istoner, varm eldfärg för det mänskliga. */
+:root{
+  --bg:#eef4f8;
+  --surface:#ffffff;
+  --ink:#1b2b38;
+  --muted:#54697a;
+  --accent:#36699c;
+  --fire:#b65420;
+  --fire-soft:#f6e3d4;
+  --ice-band:#dcebf4;
+  --line:#c3d5e1;
+  --sea:#c9e0ec;
+  --land:#e7dfc9;
+  --icefill:#f4fafdE6;
+  --icestroke:#9ec4da;
+  --display:"Bricolage Grotesque","Avenir Next","Trebuchet MS",sans-serif;
+  --body:"Atkinson Hyperlegible","Verdana",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b141c; --surface:#142230; --ink:#e6eff6; --muted:#9db1c0;
+    --accent:#7fb2e0; --fire:#e98a4f; --fire-soft:#3a281c;
+    --ice-band:#17293a; --line:#2c4457;
+    --sea:#10222f; --land:#37414b; --icefill:#dcedf8D9; --icestroke:#6f9cb8;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b141c; --surface:#142230; --ink:#e6eff6; --muted:#9db1c0;
+  --accent:#7fb2e0; --fire:#e98a4f; --fire-soft:#3a281c;
+  --ice-band:#17293a; --line:#2c4457;
+  --sea:#10222f; --land:#37414b; --icefill:#dcedf8D9; --icestroke:#6f9cb8;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  margin:0;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+main{max-width:660px; margin:0 auto}
+h1,h2,h3{font-family:var(--display); line-height:1.15; text-wrap:balance; margin:0}
+p{margin:0}
+a{color:var(--accent)}
+
+/* Hero */
+.hero{position:relative; overflow:hidden; border-radius:0 0 22px 22px;
+  background:linear-gradient(180deg, var(--ice-band), var(--bg) 115%);
+  margin:0 -4px; padding:34px 20px 26px; text-align:left}
+.eyebrow{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:10px}
+.hero h1{font-size:clamp(30px,7vw,44px); font-weight:800}
+.hero .lede{margin-top:12px; color:var(--muted); max-width:46ch}
+.snow{position:absolute; top:-8px; border-radius:50%; background:var(--icestroke); opacity:.5; pointer-events:none}
+@media (prefers-reduced-motion: no-preference){
+  .snow{animation:fall linear infinite}
+  @keyframes fall{to{transform:translateY(300px)}}
+}
+@media (prefers-reduced-motion: reduce){ .snow{display:none} }
+
+/* Tidslinje */
+.timeline{margin-top:26px; overflow-x:auto; padding-bottom:6px}
+.timeline-track{display:flex; align-items:flex-start; gap:0; min-width:560px}
+.t-stop{flex:1; position:relative; font-size:12px; color:var(--muted); padding-top:16px}
+.t-stop::before{content:""; position:absolute; top:5px; left:0; right:0; height:2px; background:var(--line)}
+.t-stop::after{content:""; position:absolute; top:1px; left:0; width:10px; height:10px; border-radius:50%; background:var(--line)}
+.t-stop.here{color:var(--fire); font-weight:700}
+.t-stop.here::after{background:var(--fire); width:12px; height:12px; top:0}
+.t-stop .when{display:block; font-size:11px; opacity:.8}
+
+/* Sektioner */
+section{margin-top:40px}
+.kicker{display:flex; align-items:center; gap:10px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--accent); margin-bottom:10px}
+.kicker::after{content:""; flex:1; height:1px; background:var(--line)}
+section h2{font-size:clamp(22px,5vw,28px); font-weight:700; margin-bottom:12px}
+section p + p{margin-top:12px}
+.note{font-size:13px; color:var(--muted); font-style:italic}
+
+/* Berättelsekort */
+.story{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-top:14px}
+.story .scene-tag{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--fire-soft); color:var(--fire); border-radius:999px; padding:3px 10px; margin-bottom:12px}
+
+/* Karta och reglage */
+.mapbox{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:14px}
+.mapbox svg{display:block; width:100%; height:auto; max-width:100%; border-radius:10px}
+.map-controls{margin-top:14px}
+.yearline{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+.yearlabel{font-family:var(--display); font-weight:800; font-size:24px; font-variant-numeric:tabular-nums}
+.yearlabel small{font-weight:500; font-size:14px; color:var(--muted)}
+input[type="range"]{width:100%; margin-top:8px; accent-color:var(--fire)}
+.epoch{margin-top:10px; min-height:3.2em; color:var(--muted)}
+.epoch strong{color:var(--ink)}
+
+/* Fyndkort */
+.finds{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-top:14px}
+.find{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+.find>button{all:unset; display:flex; align-items:center; gap:10px; width:100%; box-sizing:border-box;
+  padding:14px 16px; cursor:pointer; font-family:var(--display); font-weight:700; font-size:16px; color:var(--ink)}
+.find>button:focus-visible{outline:3px solid var(--accent); outline-offset:-3px; border-radius:14px}
+.find>button .chev{margin-left:auto; color:var(--muted); transition:transform .2s}
+.find.open>button .chev{transform:rotate(90deg)}
+.find .panel{padding:0 16px 14px; font-size:15px; color:var(--muted)}
+.find .panel strong{color:var(--ink)}
+.find svg{flex:none}
+
+/* Italien-band */
+.italy{background:var(--fire-soft); border-radius:16px; padding:20px 22px; margin-top:14px}
+.italy .kicker{color:var(--fire)}
+.italy .kicker::after{background:color-mix(in srgb, var(--fire) 30%, transparent)}
+
+/* Samtalsfrågor */
+.talk{list-style:none; padding:0; margin:14px 0 0; display:grid; gap:10px; counter-reset:q}
+.talk li{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px 14px 52px; position:relative}
+.talk li::before{counter-increment:q; content:counter(q);
+  position:absolute; left:14px; top:12px; width:26px; height:26px; border-radius:50%;
+  background:var(--accent); color:var(--bg); font-family:var(--display); font-weight:700;
+  display:grid; place-items:center; font-size:14px}
+
+/* Ordlista */
+.words{display:grid; gap:10px; margin-top:14px}
+.word{background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--accent); border-radius:12px; padding:12px 16px}
+.word b{font-family:var(--display); font-size:18px}
+.word span{color:var(--muted); font-size:15px; display:block}
+.retell{margin-top:16px; padding:16px 18px; border-radius:14px; background:var(--ice-band)}
+
+/* Föräldradel */
+details.parents{margin-top:44px; border-top:1px dashed var(--line); padding-top:14px; color:var(--muted); font-size:14px}
+details.parents summary{cursor:pointer; font-weight:700; color:var(--muted)}
+details.parents summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+details.parents h3{font-size:15px; margin:16px 0 6px; color:var(--ink)}
+details.parents ul{margin:6px 0 0; padding-left:20px}
+details.parents li{margin-top:4px}
+
+footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:14px;
+  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+</style>
+<main>
+
+<header class="hero" id="topp">
+  <div class="snow" style="left:12%; width:5px; height:5px; animation-duration:9s"></div>
+  <div class="snow" style="left:31%; width:3px; height:3px; animation-duration:13s; animation-delay:-4s"></div>
+  <div class="snow" style="left:55%; width:6px; height:6px; animation-duration:8s; animation-delay:-2s"></div>
+  <div class="snow" style="left:72%; width:4px; height:4px; animation-duration:12s; animation-delay:-7s"></div>
+  <div class="snow" style="left:88%; width:3px; height:3px; animation-duration:10s; animation-delay:-5s"></div>
+  <p class="eyebrow">Svensk historia &middot; Del 1 &middot; Lektion 1</p>
+  <h1>Isen och de f&ouml;rsta m&auml;nniskorna</h1>
+  <p class="lede">Det h&auml;r &auml;r den allra f&ouml;rsta lektionen i v&aring;r resa genom historien. Vi b&ouml;rjar innan Sverige fanns &ndash; innan n&aring;got land fanns &ndash; n&auml;r hela Norden l&aring;g under is.</p>
+  <nav class="timeline" aria-label="Tidslinje &ouml;ver hela kursen">
+    <div class="timeline-track">
+      <div class="t-stop here">Isen sl&auml;pper taget<span class="when">f&ouml;r ca 14&nbsp;000 &aring;r sedan &middot; du &auml;r h&auml;r</span></div>
+      <div class="t-stop">De f&ouml;rsta b&ouml;nderna<span class="when">ca 6&nbsp;000 &aring;r sedan</span></div>
+      <div class="t-stop">Brons&aring;ldern<span class="when">ca 3&nbsp;500 &aring;r sedan</span></div>
+      <div class="t-stop">Vikingatiden<span class="when">ca 1&nbsp;100 &aring;r sedan</span></div>
+      <div class="t-stop">Medeltiden<span class="when">ca 800 &aring;r sedan</span></div>
+      <div class="t-stop">Idag<span class="when">2026</span></div>
+    </div>
+  </nav>
+</header>
+
+<section id="gata">
+  <p class="kicker">En g&aring;ta</p>
+  <h2>Ett tuggummi, 10&nbsp;000 &aring;r gammalt</h2>
+  <p>P&aring; &ouml;n Orust p&aring; v&auml;stkusten hittade arkeologer sm&aring; svarta klumpar av bj&ouml;rkk&aring;da &ndash; med tandavtryck i. N&aring;gon hade tuggat p&aring; dem f&ouml;r n&auml;stan 10&nbsp;000 &aring;r sedan, kanske f&ouml;r att g&ouml;ra k&aring;dan mjuk s&aring; den kunde anv&auml;ndas som lim p&aring; verktyg.</p>
+  <p>Forskare lyckades till och med f&aring; fram DNA ur klumparna. Tandavtrycken kom fr&aring;n barn och unga &ndash; n&aring;gra var kanske i din &aring;lder. Ett tuggat stycke k&aring;da blev ett brev till oss, fast ingen kunde skriva.</p>
+  <p class="note">Men vänta &ndash; hur hamnade m&auml;nniskor h&auml;r &ouml;ver huvud taget? F&ouml;r att f&ouml;rst&aring; det m&aring;ste vi b&ouml;rja med isen.</p>
+</section>
+
+<section id="berattelse">
+  <p class="kicker">Ber&auml;ttelsen</p>
+  <h2>Vid isens kant</h2>
+  <p>F&ouml;r ungef&auml;r 20&nbsp;000 &aring;r sedan var hela Norden t&auml;ckt av en is, p&aring; sina st&auml;llen flera kilometer tjock. Inga tr&auml;d, inga djur, inga m&auml;nniskor &ndash; bara is och vind. Men klimatet blev l&aring;ngsamt varmare, och isen b&ouml;rjade sm&auml;lta undan mot norr. D&auml;r isen f&ouml;rsvann v&auml;xte f&ouml;rst en kal tundra fram, och dit kom renarna. Och d&auml;r renarna gick, f&ouml;ljde m&auml;nniskor efter.</p>
+  <div class="story">
+    <span class="scene-tag">P&aring;hittad scen &ndash; byggd p&aring; riktiga fynd</span>
+    <p>T&auml;nk dig en flicka f&ouml;r 14&nbsp;000 &aring;r sedan, l&auml;ngst i s&ouml;der i det som idag &auml;r Sk&aring;ne. Hennes familj bor i t&auml;lt av renhudar och flyttar med renhjordarna &ouml;ver tundran. Vid horisonten i norr lyser en vit rand: den stora isen. Hon hj&auml;lper till att samla &ouml;rter och f&aring;nga fisk, och hon kan g&ouml;ra knivskarpa verktyg av flinta. Hennes folk har vandrat hit s&ouml;derifr&aring;n, genom m&aring;nga generationer. Ingen av dem har n&aring;gonsin h&ouml;rt ordet &rdquo;Sverige&rdquo; &ndash; det ska dr&ouml;ja m&aring;nga tusen &aring;r innan det finns l&auml;nder med namn och gr&auml;nser.</p>
+  </div>
+</section>
+
+<section id="karta">
+  <p class="kicker">Prova sj&auml;lv</p>
+  <h2>Dra i tiden och se isen sm&auml;lta</h2>
+  <p>Kartan visar det som idag &auml;r Norden. Dra i reglaget fr&aring;n v&auml;nster till h&ouml;ger och se vad som h&auml;nder under 11&nbsp;000 &aring;r.</p>
+  <div class="mapbox">
+    <svg viewBox="0 0 420 460" role="img" aria-label="F&ouml;renklad karta d&auml;r inlandsisen drar sig norrut n&auml;r man drar i reglaget, och pilar visar hur m&auml;nniskor vandrar in s&ouml;derifr&aring;n och nordost ifr&aring;n.">
+      <rect x="0" y="0" width="420" height="460" fill="var(--sea)"/>
+      <!-- Förenklad landmassa: Skandinaviska halvön -->
+      <path fill="var(--land)" d="M150 440 L128 400 L118 350 L105 300 L92 250 L95 200 L108 150 L130 105 L165 70 L205 48 L250 40 L285 55 L300 90 L290 130 L268 160 L255 200 L248 250 L240 300 L228 350 L205 395 L180 430 Z"/>
+      <!-- Finland -->
+      <path fill="var(--land)" d="M305 95 L345 85 L378 110 L390 160 L385 220 L368 270 L340 300 L310 285 L298 240 L300 190 L292 140 Z"/>
+      <!-- Danmark -->
+      <path fill="var(--land)" d="M95 420 L120 412 L130 432 L112 448 L92 442 Z"/>
+      <!-- Inlandsisen (ritas om av JS) -->
+      <path id="ice" fill="var(--icefill)" stroke="var(--icestroke)" stroke-width="2" d=""/>
+      <!-- Pil 1: söderifrån -->
+      <g id="arrowS" opacity="0">
+        <path d="M160 470 L172 430 L178 400" fill="none" stroke="var(--fire)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M168 408 L178 398 L186 410" fill="none" stroke="var(--fire)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="190" y="438" font-size="15" fill="var(--fire)" font-weight="bold">m&auml;nniskor s&ouml;derifr&aring;n</text>
+      </g>
+      <!-- Pil 2: nordost, längs ishavskusten -->
+      <g id="arrowNE" opacity="0">
+        <path d="M400 60 L330 48 L260 62" fill="none" stroke="var(--fire)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M272 52 L258 63 L268 76" fill="none" stroke="var(--fire)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="258" y="30" font-size="15" fill="var(--fire)" font-weight="bold">och nordost ifr&aring;n</text>
+      </g>
+      <text x="12" y="448" font-size="12" fill="var(--muted)">F&ouml;renklad karta &ndash; kusterna s&aring;g annorlunda ut d&aring;</text>
+    </svg>
+    <div class="map-controls">
+      <div class="yearline">
+        <p class="yearlabel">F&ouml;r <span id="yearNum">20&nbsp;000</span> &aring;r sedan</p>
+      </div>
+      <input type="range" id="timeSlider" min="0" max="110" value="0" step="1"
+        aria-label="Tid: dra fr&aring;n 20&nbsp;000 till 9&nbsp;000 &aring;r sedan">
+      <p class="epoch" id="epochText" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+<section id="hurvetvi">
+  <p class="kicker">Detektivarbetet</p>
+  <h2>Hur vet vi n&aring;got om folk som inte kunde skriva?</h2>
+  <p>De f&ouml;rsta m&auml;nniskorna h&auml;r l&auml;mnade inga b&ouml;cker och inga namn. Men de l&auml;mnade sp&aring;r. Arkeologer arbetar som detektiver &ndash; tryck p&aring; sp&aring;ren och se vad de avsl&ouml;jar.</p>
+  <div class="finds">
+    <div class="find" id="find1">
+      <button type="button" aria-expanded="false" aria-controls="panel1">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2 L20 10 L17 23 L9 23 L6 10 Z" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/></svg>
+        Flintverktyg
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel1" hidden>
+        <p><strong>Vad det avsl&ouml;jar:</strong> hur man jagade, sk&auml;rde och byggde. Flinta &auml;r en sten som kan g&ouml;ras rakbladsvass. Olika s&auml;tt att hugga flintan visar ocks&aring; vilka grupper som k&auml;nde varandra &ndash; kunskap vandrade mellan m&auml;nniskor.</p>
+      </div>
+    </div>
+    <div class="find" id="find2">
+      <button type="button" aria-expanded="false" aria-controls="panel2">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="10" cy="12" r="5" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="18" cy="16" r="4" fill="none" stroke="var(--accent)" stroke-width="2"/></svg>
+        Ben och tuggummin
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel2" hidden>
+        <p><strong>Vad det avsl&ouml;jar:</strong> vad man &aring;t, hur gammal man blev &ndash; och med DNA till och med vem man var sl&auml;kt med. Det &auml;r s&aring; vi vet att tuggummina fr&aring;n Orust tuggades av barn och unga.</p>
+      </div>
+    </div>
+    <div class="find" id="find3">
+      <button type="button" aria-expanded="false" aria-controls="panel3">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 23 V9 M13 9 C13 5 10 3 7 3 C7 7 10 9 13 9 C13 5 16 3 19 3 C19 7 16 9 13 9" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+        Pollen i myrar
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel3" hidden>
+        <p><strong>Vad det avsl&ouml;jar:</strong> hur landskapet s&aring;g ut. Pollenkorn fr&aring;n blommor och tr&auml;d bevaras i tusentals &aring;r i myrar. Lager f&ouml;r lager kan forskare se tundran bli till bj&ouml;rkskog och sedan t&auml;t urskog &ndash; och med kol&nbsp;14-metoden g&aring;r det att r&auml;kna ut n&auml;r.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="italien">
+  <div class="italy">
+    <p class="kicker">Samtidigt i Italien</p>
+    <h2>Pojken fr&aring;n bergen</h2>
+    <p>F&ouml;r 14&nbsp;000 &aring;r sedan &ndash; precis n&auml;r de f&ouml;rsta renj&auml;garna n&aring;dde Sk&aring;ne &ndash; begravdes en ung man i en klippgrotta vid Villabruna i norra Italien, inte l&aring;ngt fr&aring;n Dolomiterna. Hans folk var ocks&aring; j&auml;gare och samlare, men de slapp isen: i Italien hade m&auml;nniskor d&aring; redan levt i tiotusentals &aring;r.</p>
+    <p>H&auml;r kommer det fina: n&auml;r forskare unders&ouml;kte hans DNA visade det sig att han tillh&ouml;rde samma stora &rdquo;sl&auml;ktgren&rdquo; av j&auml;gare som de m&auml;nniskor som vandrade norrut mot Norden. Flickan vid iskanten och pojken fr&aring;n bergen var avl&auml;gsna sl&auml;ktingar &ndash; Europa var redan d&aring; sammanl&auml;nkat av vandrande m&auml;nniskor.</p>
+  </div>
+</section>
+
+<section id="prata">
+  <p class="kicker">Prata tillsammans</p>
+  <h2>Tre saker att fundera p&aring;</h2>
+  <ol class="talk">
+    <li>Varf&ouml;r tror du att m&auml;nniskorna f&ouml;ljde renarna norrut, mot kylan, i st&auml;llet f&ouml;r att stanna d&auml;r det var varmare?</li>
+    <li>Om du bara fick &auml;ga det du kunde b&auml;ra &ndash; vad skulle du ta med dig? Vad beh&ouml;ver man egentligen?</li>
+    <li>Du bor i Italien och har familj i Norden &ndash; lite som flickan och pojken var l&auml;nkade f&ouml;r 14&nbsp;000 &aring;r sedan. Vad tror du m&auml;nniskor b&auml;r med sig n&auml;r de flyttar till en ny plats?</li>
+  </ol>
+</section>
+
+<section id="ord">
+  <p class="kicker">Tre svenska ord</p>
+  <h2>Ta med dig orden</h2>
+  <div class="words">
+    <div class="word"><b>inlandsisen</b><span>den enorma is som t&auml;ckte hela Norden &ndash; flera kilometer tjock</span></div>
+    <div class="word"><b>j&auml;gare och samlare</b><span>m&auml;nniskor som lever av att jaga, fiska och samla v&auml;xter, och flyttar dit maten finns</span></div>
+    <div class="word"><b>arkeolog</b><span>en forskare som l&auml;ser m&auml;nniskors sp&aring;r i marken, som en detektiv</span></div>
+  </div>
+  <div class="retell">
+    <p><strong>Till sist:</strong> ber&auml;tta lektionen med egna ord, som om du ber&auml;ttade den f&ouml;r en kompis. B&ouml;rja g&auml;rna med: <em>&rdquo;F&ouml;r l&auml;nge, l&auml;nge sedan var allt is&hellip;&rdquo;</em></p>
+  </div>
+</section>
+
+<details class="parents">
+  <summary>F&ouml;r f&ouml;r&auml;ldern: k&auml;llor, tidsplan och os&auml;kerheter</summary>
+  <h3>F&ouml;rslag p&aring; tidsplan (ca 10 min)</h3>
+  <ul>
+    <li>1 min &ndash; g&aring;tan om tuggummit</li>
+    <li>2 min &ndash; ber&auml;ttelsen vid isens kant</li>
+    <li>3 min &ndash; kartan: dra i tiden tillsammans, l&aring;t barnet styra</li>
+    <li>1 min &ndash; fyndkorten och Italien</li>
+    <li>3 min &ndash; samtalsfr&aring;gorna och orden; avsluta med &aring;terber&auml;ttandet</li>
+  </ul>
+  <h3>K&auml;llor</h3>
+  <ul>
+    <li>Historiska museet: &auml;ldre sten&aring;ldern/jägarstenåldern i Sverige (historiska.se)</li>
+    <li>Kashuba m.fl. 2019, <em>Communications Biology</em>: DNA ur tuggad bj&ouml;rkk&aring;da fr&aring;n Huseby Klev, Orust (ca 9&nbsp;700 &aring;r)</li>
+    <li>Fu m.fl. 2016, <em>Nature</em>: Villabruna-graven (ca 14&nbsp;000 &aring;r) och &rdquo;Villabruna-klustret&rdquo; av europeiska j&auml;gare-samlare</li>
+    <li>G&uuml;nther m.fl. 2018, <em>PLOS Biology</em>: Skandinaviens f&ouml;rsta invandringar skedde b&aring;de s&ouml;derifr&aring;n och via ishavskusten i nordost</li>
+    <li>SGU och Nationalencyklopedin: inlandsisens utbredning och avsm&auml;ltning</li>
+  </ul>
+  <h3>Os&auml;kerheter och f&ouml;renklingar</h3>
+  <ul>
+    <li>Alla &aring;rtal &auml;r ungef&auml;rliga och skiljer sig mellan regioner och studier; isens reträtt pausade och ryckte fram igen (yngre dryas), vilket kartan f&ouml;renklar till en j&auml;mn r&ouml;relse.</li>
+    <li>Kartan &auml;r kraftigt f&ouml;renklad: &Ouml;stersj&ouml;n var periodvis issj&ouml; och innanhav, och kustlinjerna l&aring;g helt annorlunda p.g.a. landh&ouml;jning och havsniv&aring;er.</li>
+    <li>Scenen med flickan &auml;r fiktion byggd p&aring; fyndbilden (Hamburg-/Brommekulturens renj&auml;gare i Sk&aring;ne). Att m&auml;nniskorna &rdquo;f&ouml;ljde renarna&rdquo; &auml;r en v&auml;l underbyggd tolkning, inte ett direkt bel&auml;gg.</li>
+    <li>DNA-sl&auml;ktskapet med Villabruna g&auml;ller p&aring; befolkningsniv&aring; (&rdquo;v&auml;steurop&auml;iska j&auml;gare-samlare&rdquo;), inte enskilda personer.</li>
+    <li>Vad m&auml;nniskorna trodde och k&auml;nde vet vi mycket lite om &ndash; h&auml;r skiljer lektionen medvetet p&aring; bel&auml;gg och tolkning, och l&auml;mnar reflektionen till ert samtal.</li>
+  </ul>
+</details>
+
+<footer>
+  <span>Del 1 &middot; Lektion 1 av 20</span>
+  <span><a href="02-de-forsta-bonderna.html">N&auml;sta g&aring;ng: De f&ouml;rsta b&ouml;nderna &rarr;</a></span>
+</footer>
+
+</main>
+<script>
+(function(){
+  var slider = document.getElementById('timeSlider');
+  var yearNum = document.getElementById('yearNum');
+  var epochText = document.getElementById('epochText');
+  var ice = document.getElementById('ice');
+  var arrowS = document.getElementById('arrowS');
+  var arrowNE = document.getElementById('arrowNE');
+
+  // Iskantens läge (y i kartan) vid olika tider (år sedan) – förenklat
+  var keyframes = [
+    [20000, 468],
+    [17000, 422],
+    [14000, 372],
+    [11500, 288],
+    [10000, 182],
+    [9500, 115],
+    [9000, 52]
+  ];
+
+  function edgeAt(year){
+    if (year >= keyframes[0][0]) return keyframes[0][1];
+    var last = keyframes[keyframes.length - 1];
+    if (year <= last[0]) return last[1];
+    for (var i = 0; i < keyframes.length - 1; i++){
+      var a = keyframes[i], b = keyframes[i+1];
+      if (year <= a[0] && year >= b[0]){
+        var t = (a[0] - year) / (a[0] - b[0]);
+        return a[1] + (b[1] - a[1]) * t;
+      }
+    }
+    return last[1];
+  }
+
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+
+  function epochFor(year){
+    if (year >= 19000) return '<strong>Isens rike.</strong> Hela Norden ligger under flera kilometer tjock is. Ingen kan bo här.';
+    if (year >= 15500) return '<strong>Det blir varmare.</strong> Isen smälter långsamt undan mot norr, och kal mark kommer fram i söder.';
+    if (year >= 13000) return '<strong>Tundran lever.</strong> Renarna betar på den nya marken – och för ungefär 14 000 år sedan kommer de första människorna söderifrån.';
+    if (year >= 10800) return '<strong>Skogen växer upp.</strong> Björk och tall tar över tundran. Människorna jagar, fiskar och flyttar med årstiderna.';
+    if (year >= 9600) return '<strong>Fler vägar in.</strong> Nu kommer människor också nordost ifrån, längs ishavskusten. Ungefär nu tuggas tuggummina på Orust!';
+    return '<strong>Isen är nästan borta.</strong> Hav och sjöar är fulla av fisk, skogen av vilt. Jägare och samlare bor nu i hela Norden.';
+  }
+
+  function render(){
+    var year = 20000 - slider.value * 100;
+    yearNum.textContent = year.toLocaleString('sv-SE');
+    epochText.innerHTML = epochFor(year);
+
+    var edge = edgeAt(year);
+    var d = 'M -5 -5 L 425 -5 L 425 ' + (edge + Math.sin(425/47 + year/900) * 10).toFixed(1);
+    for (var x = 420; x >= 0; x -= 30){
+      var y = edge + Math.sin(x/47 + year/900) * 10;
+      d += ' L ' + x + ' ' + y.toFixed(1);
+    }
+    d += ' L -5 ' + (edge + Math.sin(-5/47 + year/900) * 10).toFixed(1) + ' Z';
+    ice.setAttribute('d', d);
+    ice.style.display = (year <= 9050) ? 'none' : '';
+
+    arrowS.setAttribute('opacity', clamp01((14300 - year) / 600).toFixed(2));
+    arrowNE.setAttribute('opacity', clamp01((10400 - year) / 500).toFixed(2));
+  }
+
+  slider.addEventListener('input', render);
+  render();
+
+  // Fyndkorten
+  document.querySelectorAll('.find > button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+      btn.parentElement.classList.toggle('open', !open);
+    });
+  });
+})();
+</script>
+</html>

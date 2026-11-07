@@ -1,0 +1,19 @@
+# Svensk historia – lördagslektioner
+
+Interaktiva tiominuterslektioner i svensk historia för hemspråksundervisning
+(en nioåring och hans pappa). Fokus: människors vardag, kulturmöten och hur
+Norden hänger ihop med resten av världen.
+
+- **Publik sajt:** https://dbackeus.github.io/svensk-historia/
+- Lektionerna är fristående HTML-filer i repots rot (utan dokumentskal, så att
+  de även kan publiceras som Claude-artefakter).
+- `./build.sh` paketerar publika kopior till `docs/`, som GitHub Pages serverar.
+
+## Bildkällor
+
+Alla foton/teckningar via Wikimedia Commons under fria licenser; fullständiga
+krediter och länkar finns i varje lektions bildtexter och föräldradel
+(Lascaux: public domain · Ekornavallen: Bengt A. Lundberg/RAÄ, CC BY 2.5 ·
+Montelius 1877: public domain · Flintyxa Karleby: Achird, CC BY-SA 3.0 ·
+Skarpsallingkärlet: Knud Winckelmann, CC BY-SA 3.0 · Ötzis kopparyxa:
+AleksandrLaptev, CC BY-SA 4.0 · Ötzis sko: Donja Malhotra, CC BY-SA 2.5).

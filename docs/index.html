@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Svensk historia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{
+  --bg:#f6f1e6; --surface:#fffdf6; --ink:#2b2416; --muted:#6f6450;
+  --accent:#49773f; --gold:#a87b24; --gold-soft:#f3e5c6; --line:#dcd1b6; --band:#e6ecd1;
+  --display:"Bricolage Grotesque","Avenir Next","Trebuchet MS",sans-serif;
+  --body:"Atkinson Hyperlegible","Verdana",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15120a; --surface:#221d10; --ink:#f0e8d6; --muted:#b2a78d;
+    --accent:#93c285; --gold:#dfa84e; --gold-soft:#3a2d13; --line:#49412a; --band:#212a14;
+  }
+}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{background:var(--bg); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.6;
+  margin:0; padding:48px max(16px, env(safe-area-inset-left,0px)) 64px max(16px, env(safe-area-inset-right,0px))}
+main{max-width:620px; margin:0 auto}
+h1{font-family:var(--display); font-weight:800; font-size:clamp(32px,8vw,46px); line-height:1.1; margin:0}
+.eyebrow{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:700; margin:0 0 10px}
+.lede{color:var(--muted); margin:14px 0 0; max-width:48ch}
+ol.lessons{list-style:none; margin:36px 0 0; padding:0; display:grid; gap:12px}
+.lesson{display:flex; align-items:center; gap:16px; background:var(--surface); border:1px solid var(--line);
+  border-radius:16px; padding:16px 18px; text-decoration:none; color:var(--ink)}
+a.lesson:hover{border-color:var(--accent)}
+.lesson .nr{flex:none; width:44px; height:44px; border-radius:50%; background:var(--band); color:var(--accent);
+  font-family:var(--display); font-weight:800; font-size:20px; display:grid; place-items:center}
+.lesson b{font-family:var(--display); font-size:19px; display:block; line-height:1.25}
+.lesson span{color:var(--muted); font-size:14px}
+.lesson.coming{opacity:.6; border-style:dashed}
+.lesson.coming .nr{background:transparent; border:1.5px dashed var(--line); color:var(--muted)}
+footer{max-width:620px; margin:40px auto 0; color:var(--muted); font-size:13.5px; border-top:1px solid var(--line); padding-top:14px}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Lördagslektioner &middot; Del 1 av 6</p>
+  <h1>Svensk historia</h1>
+  <p class="lede">En lektionsserie på ungefär tio minuter i taget, om hur historien i det som nu är Sverige hänger ihop med resten av världen. Varje lektion fungerar på dator och mobil.</p>
+  <ol class="lessons">
+    <li><a class="lesson" href="01-isen-och-de-forsta-manniskorna.html">
+      <span class="nr">1</span>
+      <span><b>Isen och de första människorna</b><span>Isens tillbakadragande, jägare och samlare &ndash; och ett 10&nbsp;000 år gammalt tuggummi</span></span>
+    </a></li>
+    <li><a class="lesson" href="02-de-forsta-bonderna.html">
+      <span class="nr">2</span>
+      <span><b>De första bönderna</b><span>En ko i en båt, jordbrukets resa genom Europa och mannen i isen</span></span>
+    </a></li>
+    <li><span class="lesson coming">
+      <span class="nr">3</span>
+      <span><b>Bronsålderns förbindelser</b><span>kommer snart</span></span>
+    </span></li>
+  </ol>
+  <footer>Hemspråksundervisning för en nioåring och hans pappa. Foton av riktiga fynd via Wikimedia Commons &ndash; källor och licenser finns i varje lektions föräldradel.</footer>
+</main>
+</body>
+</html>
