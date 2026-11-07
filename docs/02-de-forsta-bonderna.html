@@ -83,6 +83,10 @@ a{color:var(--accent)}
   background:linear-gradient(180deg, var(--sky) 0%, var(--bg) 130%);
   margin:0 -4px; padding:36px 22px 0}
 .eyebrow{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:10px}
+.theme{position:absolute; top:16px; right:16px; z-index:2; width:38px; height:38px; border-radius:50%; border:1.5px solid var(--line);
+  background:var(--surface); color:var(--muted); font-size:16px; cursor:pointer; display:grid; place-items:center; padding:0}
+.theme:hover{border-color:var(--accent); color:var(--accent)}
+.theme:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
 .hero h1{font-size:clamp(32px,7.5vw,48px); font-weight:800}
 .hero .lede{margin-top:14px; color:var(--muted); max-width:48ch}
 .scape{display:block; width:100%; height:auto; margin-top:18px}
@@ -160,7 +164,7 @@ input[type="range"]{width:100%; margin-top:10px; accent-color:var(--gold)}
 .epoch strong{color:var(--ink)}
 
 /* ---------- Fyndkort ---------- */
-.finds{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:16px}
+.finds{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:16px; align-items:start}
 .find{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden}
 .find>button{all:unset; display:flex; align-items:center; gap:10px; width:100%; box-sizing:border-box;
   padding:14px 16px; cursor:pointer; font-family:var(--display); font-weight:700; font-size:16px; color:var(--ink)}
@@ -210,6 +214,7 @@ footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); colo
 <main>
 
 <header class="hero" id="topp">
+  <button type="button" id="themeBtn" class="theme" aria-label="Växla mellan ljust och mörkt läge"></button>
   <p class="eyebrow">Svensk historia &middot; Del 1 &middot; Lektion 2</p>
   <h1>De första bönderna</h1>
   <p class="lede">Förra gången smälte isen bort och jägare vandrade in i ett alldeles nytt land. I tusentals år levde människor här av jakt, fiske och det naturen gav. Nu händer något som långsamt ändrar nästan allt: människor börjar odla sin mat.</p>
@@ -598,6 +603,28 @@ footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); colo
       panel.hidden = open;
       btn.parentElement.classList.toggle('open', !open);
     });
+  });
+})();
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('themeBtn');
+  if (!btn) return;
+  function effective(){
+    var t = root.getAttribute('data-theme');
+    if (t === 'light' || t === 'dark') return t;
+    return (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function icon(){ btn.textContent = effective() === 'dark' ? '☀' : '☾'; }
+  try{
+    var saved = localStorage.getItem('historia-tema');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  }catch(e){}
+  icon();
+  btn.addEventListener('click', function(){
+    var next = effective() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('historia-tema', next); }catch(e){}
+    icon();
   });
 })();
 </script>
