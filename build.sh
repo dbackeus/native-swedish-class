@@ -23,6 +23,7 @@ build() {
     sed -e 's|https://claude.ai/artifact/L4VSE7AV435G2d3v7KzxPw|01-isen-och-de-forsta-manniskorna.html|g' \
         -e 's|https://claude.ai/artifact/3nDFNcZb7sUJEeqUGCEtq7|02-de-forsta-bonderna.html|g' \
         -e 's|https://claude.ai/artifact/MmrgHrKy5dhgDpu8m9HcQ9|02-de-forsta-bonderna.html|g' \
+        -e 's|https://claude.ai/artifact/Lrk4npTCZyYP5Sz8P7c7c5|03-bronsalderns-forbindelser.html|g' \
         "$src"
     echo '</html>'
   } > "docs/$dst"
@@ -31,6 +32,7 @@ build() {
 
 build 01-isen-och-de-forsta-manniskorna.html 01-isen-och-de-forsta-manniskorna.html
 build 02-de-forsta-bonderna-v2.html 02-de-forsta-bonderna.html
+build 03-bronsalderns-forbindelser.html 03-bronsalderns-forbindelser.html
 rm -rf docs/bilder
 cp -R bilder docs/bilder
 find docs -name .DS_Store -delete

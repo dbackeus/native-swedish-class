@@ -1,0 +1,594 @@
+<title>Bronsålderns förbindelser</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: enspaltig lektionssida. Epoktema: berghäll med ristningar; brons, patina och bärnstensgult; foton av riktiga fynd. */
+:root{
+  --bg:#f5efe2;
+  --surface:#fdfaf0;
+  --ink:#2a2317;
+  --muted:#6f6350;
+  --accent:#3d7a68;
+  --accent-soft:#dcebe1;
+  --gold:#a86f1e;
+  --gold-soft:#f3e3c2;
+  --band:#e4e9d4;
+  --line:#dcd0b4;
+  --rock1:#d3c8b4;
+  --rock2:#b4a68d;
+  --rockline:#9d8f77;
+  --carv:#a63d2a;
+  --sun:#c98f26;
+  --sea:#cfe3ed;
+  --sea2:#aecedf;
+  --seawave:#9cc0d2;
+  --coast:#b5a885;
+  --land:#ece3c8;
+  --amber:#e0891d;
+  --bronze:#44806b;
+  --display:"Bricolage Grotesque","Avenir Next","Trebuchet MS",sans-serif;
+  --body:"Atkinson Hyperlegible","Verdana",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141009; --surface:#211b10; --ink:#f0e8d6; --muted:#b1a68c;
+    --accent:#7fbfa6; --accent-soft:#1d2f26;
+    --gold:#dfa84e; --gold-soft:#3a2c12;
+    --band:#20271a; --line:#48402a;
+    --rock1:#2e2920; --rock2:#241f17; --rockline:#4a4232;
+    --carv:#cf5134; --sun:#d49a35;
+    --sea:#13252f; --sea2:#0c1b25; --seawave:#1f3a49; --coast:#4e4733;
+    --land:#3b3a2b; --amber:#eda032; --bronze:#6fae92;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141009; --surface:#211b10; --ink:#f0e8d6; --muted:#b1a68c;
+  --accent:#7fbfa6; --accent-soft:#1d2f26;
+  --gold:#dfa84e; --gold-soft:#3a2c12;
+  --band:#20271a; --line:#48402a;
+  --rock1:#2e2920; --rock2:#241f17; --rockline:#4a4232;
+  --carv:#cf5134; --sun:#d49a35;
+  --sea:#13252f; --sea2:#0c1b25; --seawave:#1f3a49; --coast:#4e4733;
+  --land:#3b3a2b; --amber:#eda032; --bronze:#6fae92;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  margin:0;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+main{max-width:680px; margin:0 auto}
+h1,h2,h3{font-family:var(--display); line-height:1.12; text-wrap:balance; margin:0}
+p{margin:0}
+a{color:var(--accent)}
+
+/* ---------- Hero: berghäll med ristningar ---------- */
+.hero{position:relative; overflow:hidden; border-radius:0 0 24px 24px;
+  background:linear-gradient(180deg, var(--rock1) 0%, var(--bg) 140%);
+  margin:0 -4px; padding:36px 22px 0}
+.eyebrow{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:10px}
+.theme{position:absolute; top:16px; right:16px; z-index:2; width:38px; height:38px; border-radius:50%; border:1.5px solid var(--line);
+  background:var(--surface); color:var(--muted); font-size:16px; cursor:pointer; display:grid; place-items:center; padding:0}
+.theme:hover{border-color:var(--accent); color:var(--accent)}
+.theme:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.hero h1{font-size:clamp(32px,7.5vw,48px); font-weight:800}
+.hero .lede{margin-top:14px; color:var(--muted); max-width:48ch}
+.scape{display:block; width:100%; height:auto; margin-top:18px}
+@media (prefers-reduced-motion: no-preference){
+  .rays{animation:glow 6s ease-in-out infinite}
+  @keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+}
+@media (prefers-reduced-motion: reduce){ .rays{opacity:.8} }
+
+/* ---------- Tidslinje ---------- */
+.timeline{overflow-x:auto; padding:18px 22px 16px; margin:0 -4px}
+.timeline-track{position:relative; display:flex; min-width:600px; max-width:680px; margin:0 auto}
+.timeline-track::before{content:""; position:absolute; top:6px; left:calc(100%/12); right:calc(100%/12); height:2px; background:var(--line)}
+.t-stop{flex:1; position:relative; text-align:center; font-size:12px; line-height:1.35; color:var(--muted); padding-top:20px}
+.t-stop::after{content:""; position:absolute; top:1px; left:50%; transform:translateX(-50%); width:11px; height:11px; border-radius:50%; background:var(--line)}
+.t-stop.done::after{background:var(--muted)}
+.t-stop.here{color:var(--ink); font-weight:700}
+.t-stop.here::after{background:var(--gold); width:15px; height:15px; top:-1px; box-shadow:0 0 0 4px var(--gold-soft)}
+.t-stop .when{display:block; font-size:11px; opacity:.75; font-weight:400}
+.youare{display:inline-block; margin-top:5px; font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--gold); color:var(--surface); border-radius:999px; padding:2px 9px}
+
+/* ---------- Sektioner ---------- */
+section{margin-top:44px}
+.kicker{display:flex; align-items:center; gap:10px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--accent); margin-bottom:10px}
+.kicker::after{content:""; flex:1; height:1px; background:var(--line)}
+section h2{font-size:clamp(23px,5vw,30px); font-weight:700; margin-bottom:12px}
+section p + p{margin-top:12px}
+.note{font-size:13.5px; color:var(--muted); font-style:italic}
+
+/* ---------- Figurer med foton ---------- */
+.fig{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:10px; margin:0}
+.fig img{width:100%; height:auto; display:block; border-radius:9px}
+.fig .tag{position:absolute; top:18px; left:18px; font-size:10.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  background:var(--ink); color:var(--bg); border-radius:999px; padding:3px 10px; opacity:.92}
+.fig figcaption{font-size:13.5px; color:var(--muted); margin-top:9px; line-height:1.5; padding:0 2px}
+.fig .credit{display:block; margin-top:3px; font-size:11.5px; color:var(--muted); opacity:.8}
+.figwide{margin-top:16px}
+.figrow{display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:12px; margin-top:16px; align-items:start}
+.figrow2{display:grid; grid-template-columns:repeat(auto-fit,minmax(225px,1fr)); gap:12px; margin-top:16px; align-items:start}
+
+/* ---------- Berättelsekort ---------- */
+.story{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin-top:16px}
+.story .scene-tag{display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--gold-soft); color:var(--gold); border-radius:999px; padding:3px 11px; margin-bottom:12px}
+.story p + p{margin-top:10px}
+.story p:nth-of-type(1)::first-letter{font-family:var(--display); font-weight:800; font-size:3.1em; float:left; line-height:.85; padding:2px 8px 0 0; color:var(--accent)}
+
+/* ---------- Karta och reglage ---------- */
+.mapbox{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:16px}
+.mapbox svg{display:block; width:100%; height:auto; max-width:100%; border-radius:10px}
+.plainland{fill:var(--land); stroke:var(--coast); stroke-width:1.1; stroke-linejoin:round}
+.route{fill:none; stroke:var(--muted); stroke-width:1.6; stroke-dasharray:3 6; stroke-linecap:round; opacity:.7}
+.routeDone{fill:none; stroke:var(--gold); stroke-width:2.6; stroke-linecap:round}
+.map-controls{margin-top:16px}
+.yearline{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
+.yearlabel{font-family:var(--display); font-weight:800; font-size:23px}
+.play{width:42px; height:42px; border-radius:50%; border:1.5px solid var(--line); background:var(--surface); color:var(--accent);
+  font-size:15px; cursor:pointer; display:grid; place-items:center; padding:0}
+.play:hover{border-color:var(--accent)}
+.play:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+input[type="range"]{width:100%; margin-top:10px; accent-color:var(--gold)}
+.ticks{display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:2px}
+.legend{display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--muted); margin-top:10px}
+.legend .dot{display:inline-block; width:11px; height:11px; border-radius:50%; background:var(--amber); margin-right:6px; vertical-align:-1px}
+.legend .sq{display:inline-block; width:10px; height:10px; background:var(--bronze); transform:rotate(45deg); margin-right:7px; vertical-align:-1px}
+.epoch{margin-top:12px; min-height:4.6em; color:var(--muted); border-left:4px solid var(--gold);
+  background:var(--bg); border-radius:0 10px 10px 0; padding:10px 14px}
+.epoch strong{color:var(--ink)}
+
+/* ---------- Fyndkort ---------- */
+.finds{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:16px; align-items:start}
+.find{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+.find>button{all:unset; display:flex; align-items:center; gap:10px; width:100%; box-sizing:border-box;
+  padding:14px 16px; cursor:pointer; font-family:var(--display); font-weight:700; font-size:16px; color:var(--ink)}
+.find>button:hover{background:var(--accent-soft)}
+.find>button:focus-visible{outline:3px solid var(--accent); outline-offset:-3px; border-radius:14px}
+.find>button .chev{margin-left:auto; color:var(--muted); transition:transform .2s}
+.find.open>button .chev{transform:rotate(90deg)}
+.find .panel{padding:0 16px 14px; font-size:15px; color:var(--muted)}
+.find .panel strong{color:var(--ink)}
+.find .panel img{width:100%; height:auto; display:block; border-radius:9px; margin-top:10px}
+.find .panel .credit{display:block; margin-top:4px; font-size:11.5px; color:var(--muted); opacity:.8}
+.find svg{flex:none}
+
+/* ---------- Italien-band ---------- */
+.italy{background:var(--gold-soft); border-radius:16px; padding:22px 24px; margin-top:16px}
+.italy .kicker{color:var(--gold)}
+.italy .kicker::after{background:color-mix(in srgb, var(--gold) 30%, transparent)}
+.italy p + p{margin-top:12px}
+.italy .fig{background:var(--surface)}
+
+/* ---------- Samtalsfrågor ---------- */
+.talk{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px; counter-reset:q}
+.talk li{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px 14px 54px; position:relative}
+.talk li::before{counter-increment:q; content:counter(q);
+  position:absolute; left:14px; top:13px; width:27px; height:27px; border-radius:50%;
+  background:var(--accent); color:var(--surface); font-family:var(--display); font-weight:700;
+  display:grid; place-items:center; font-size:14px}
+
+/* ---------- Ordlista ---------- */
+.words{display:grid; gap:10px; margin-top:16px}
+.word{background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--accent); border-radius:12px; padding:12px 16px}
+.word b{font-family:var(--display); font-size:18px}
+.word span{color:var(--muted); font-size:15px; display:block}
+.retell{margin-top:16px; padding:16px 18px; border-radius:14px; background:var(--band)}
+
+/* ---------- Föräldradel ---------- */
+details.parents{margin-top:48px; border-top:1px dashed var(--line); padding-top:14px; color:var(--muted); font-size:14px}
+details.parents summary{cursor:pointer; font-weight:700; color:var(--muted)}
+details.parents summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+details.parents h3{font-size:15px; margin:16px 0 6px; color:var(--ink)}
+details.parents ul{margin:6px 0 0; padding-left:20px}
+details.parents li{margin-top:4px}
+
+footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:14px;
+  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+</style>
+<main>
+
+<header class="hero" id="topp">
+  <button type="button" id="themeBtn" class="theme" aria-label="Växla mellan ljust och mörkt läge"></button>
+  <p class="eyebrow">Svensk historia &middot; Del 1 &middot; Lektion 3</p>
+  <h1>Bronsålderns förbindelser</h1>
+  <p class="lede">Förra gången blev människorna här bönder och bofasta. Och minns du Ötzis yxa av koppar? Nu kommer metallen hit på allvar &ndash; och med den båtar, byten och vänner mycket långt borta. Norden knyts in i ett nätverk som sträcker sig över halva världen.</p>
+  <svg class="scape" viewBox="0 0 800 200" role="img" aria-label="Illustration i hällristningsstil: ett stort skepp med besättning, två lurblåsare och en strålande solsymbol, ristade i rött på en grå berghäll.">
+    <rect x="0" y="0" width="800" height="200" fill="var(--rock1)"/>
+    <path d="M0 150 C220 128 540 170 800 138 L800 200 L0 200 Z" fill="var(--rock2)" opacity=".55"/>
+    <path d="M90 0 C120 60 95 130 130 200 M600 0 C580 70 640 120 620 200" stroke="var(--rockline)" stroke-width="1.6" fill="none" opacity=".5"/>
+    <!-- solsymbol -->
+    <g stroke="var(--sun)" fill="none" stroke-linecap="round">
+      <circle cx="648" cy="62" r="24" stroke-width="5"/>
+      <path d="M648 44 V80 M630 62 H666" stroke-width="4"/>
+      <g class="rays" stroke-width="4">
+        <path d="M648 24 V12 M648 100 V112 M610 62 H598 M686 62 H698 M621 35 L613 27 M675 35 L683 27 M621 89 L613 97 M675 89 L683 97"/>
+      </g>
+    </g>
+    <!-- stort skepp med besättning -->
+    <g stroke="var(--carv)" fill="none" stroke-linecap="round">
+      <path d="M250 142 C320 156 460 156 528 142 C544 138 556 124 560 104" stroke-width="7"/>
+      <path d="M262 126 C325 138 455 138 518 126 C532 122 540 112 544 98" stroke-width="5"/>
+      <path d="M250 142 C240 136 232 122 230 104" stroke-width="7"/>
+      <circle cx="228" cy="98" r="5" stroke-width="4"/>
+      <circle cx="562" cy="98" r="5" stroke-width="4"/>
+      <g stroke-width="4">
+        <path d="M296 126 V104 M324 126 V104 M352 126 V104 M380 126 V104 M408 126 V104 M436 126 V104 M464 126 V104 M492 126 V104"/>
+      </g>
+    </g>
+    <!-- litet skepp -->
+    <g stroke="var(--carv)" fill="none" stroke-linecap="round" stroke-width="4" opacity=".85">
+      <path d="M118 70 C150 78 210 78 242 70 C250 68 256 60 258 50"/>
+      <path d="M118 70 C113 66 109 58 108 50"/>
+      <path d="M140 62 V48 M162 62 V48 M184 62 V48 M206 62 V48 M228 62 V48"/>
+    </g>
+    <!-- två lurblåsare -->
+    <g stroke="var(--carv)" fill="none" stroke-linecap="round" stroke-width="4.5">
+      <path d="M680 168 V140 M680 168 L668 186 M680 168 L692 186 M680 146 L664 134"/>
+      <path d="M664 134 C650 122 646 104 656 92" stroke-width="4"/>
+      <circle cx="680" cy="132" r="7"/>
+      <path d="M728 172 V144 M728 172 L716 190 M728 172 L740 190 M728 150 L712 138"/>
+      <path d="M712 138 C698 126 694 108 704 96" stroke-width="4"/>
+      <circle cx="728" cy="136" r="7"/>
+    </g>
+    <!-- skålgropar -->
+    <g fill="var(--carv)" opacity=".8">
+      <circle cx="60" cy="150" r="5"/><circle cx="84" cy="164" r="5"/><circle cx="52" cy="178" r="5"/><circle cx="96" cy="140" r="5"/>
+    </g>
+  </svg>
+</header>
+
+<nav class="timeline" aria-label="Tidslinje över hela kursen">
+  <div class="timeline-track">
+    <div class="t-stop done">Isen släpper taget<span class="when">ca 14 000 år sedan</span></div>
+    <div class="t-stop done">De första bönderna<span class="when">ca 6 000 år sedan</span></div>
+    <div class="t-stop here">Bronsåldern<span class="when">ca 3 500 år sedan</span><br><span class="youare">du är här</span></div>
+    <div class="t-stop">Vikingatiden<span class="when">ca 1 100 år sedan</span></div>
+    <div class="t-stop">Medeltiden<span class="when">ca 800 år sedan</span></div>
+    <div class="t-stop">Idag<span class="when">2026</span></div>
+  </div>
+</nav>
+
+<section id="gata">
+  <p class="kicker">En gåta</p>
+  <h2>Berget utan metall</h2>
+  <p>Brons är en blandning av två metaller: koppar och tenn. Här kommer gåtan: på bronsåldern bröt ingen människa i Norden någon av dem ur berget. Tenn fanns knappt alls, och kopparn i föremålen kom långt utifrån. Ändå är Skandinavien fullt av bronsfynd &ndash; yxor, svärd, smycken, till och med jättelika blåshorn. Hur fick de tag på allt?</p>
+  <p>Svaret: de hade något att byta med. En ledtråd ligger och blänker i tången på stranden efter höststormarna.</p>
+  <figure class="fig figwide">
+    <span class="tag">Riktigt material</span>
+    <img src="bilder/03/barnsten.jpg" alt="En rå bit bärnsten i honungsgult, fotograferad bredvid en linjal som visar att den är ungefär fyra centimeter bred." width="880" height="586" loading="lazy">
+    <figcaption>Bärnsten &ndash; kåda från urgamla träd som hårdnat under miljontals år. Havet spolar upp den på stränderna vid Östersjön och Nordsjön. Den är varm i handen, lätt som trä och glöder som sol. Längre söderut i Europa fanns den inte &ndash; där kallades den <em>Nordens guld</em>.
+      <a class="credit" href="https://commons.wikimedia.org/wiki/File:A_piece_of_raw_Baltic_amber_2.jpg">Foto: W.carter &middot; CC BY-SA 4.0</a></figcaption>
+  </figure>
+</section>
+
+<section id="berattelse">
+  <p class="kicker">Berättelsen</p>
+  <h2>Skeppet i berget</h2>
+  <p>Bronsålderns människor i Norden var bönder, precis som i förra lektionen. Men de var också sjöfolk. På släta berghällar nära kusten knackade de in tusentals bilder med stenar och mejslar &ndash; och den vanligaste bilden av alla är skeppet.</p>
+  <div class="story">
+    <span class="scene-tag">Påhittad scen &ndash; byggd på riktiga fynd</span>
+    <p>Tänk dig en pojke vid kusten i Bohuslän för ungefär 3 000 år sedan. En hel sommar har han spejat ut över vattnet. Så en kväll ropar systern från klipporna: skeppet! Morbror är hemma igen &ndash; två somrar har han varit borta, och i båten ligger blänkande tackor av koppar och tenn, och berättelser om floder utan slut och berg som rör vid molnen. Betalningen? Säckarna med bärnsten som byn samlat, borta för alltid.</p>
+    <p>Några dagar senare sitter pojken bredvid byns äldsta vid den stora hällen och får hjälpa till: de knackar in ett nytt skepp i berget, med streck för varje man i besättningen. Och när solen går ner bakom havet säger farmor som hon alltid säger: nu byter solen till sitt nattskepp, så att hon kan segla under världen och komma tillbaka i morgon.</p>
+  </div>
+  <div class="figrow">
+    <figure class="fig">
+      <span class="tag">Riktig hällristning</span>
+      <img src="bilder/03/tanum.jpg" alt="Hällristning: två skepp med uppsvängda stävar och många bemanningsstreck, imålade med röd färg på grå berghäll." width="880" height="589" loading="lazy">
+      <figcaption>Skepp med besättning, knackade i berget i Tanum i Bohuslän. Den röda färgen är ifylld i vår tid för att bilderna ska synas &ndash; från början var de bara huggna i berget.
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Rock_carving_Vitlycke_Tanum.JPG">Foto: Boberger &middot; CC BY-SA 3.0</a></figcaption>
+    </figure>
+    <figure class="fig">
+      <span class="tag">Riktig plats &ndash; idag</span>
+      <img src="bilder/03/tanum2.jpg" alt="En stor sluttande berghäll i en skogsglänta, täckt av ristade skepp, människor och djur." width="880" height="664" loading="lazy">
+      <figcaption>En hel berghäll full av bilder i Tanum &ndash; här ristade människor i hundratals år. Idag är hällarna världsarv, och du kan gå dit och se dem.
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Tanumshede_2005_rock_carvings_3.jpg">Foto: Fred J &middot; public domain</a></figcaption>
+    </figure>
+    <figure class="fig">
+      <span class="tag">Riktigt fynd</span>
+      <img src="bilder/03/solvagnen.jpg" alt="Solvagnen från Trundholm: en bronshäst på hjul som drar en stor rund skiva, vars sida lyser av guld." width="880" height="657" loading="lazy">
+      <figcaption>Solvagnen från Trundholm i Danmark, ungefär 3 400 år gammal: en häst drar solen på hjul. Skivans ena sida är klädd med guld &ndash; kanske dagens ljusa sida, medan den mörka sidan var natten.
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Solvognen-00100.jpg">Foto: Nationalmuseet, Danmark &middot; CC BY-SA 3.0</a></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="karta">
+  <p class="kicker">Prova själv</p>
+  <h2>Följ bärnstenens resa</h2>
+  <p>Dra i reglaget (eller tryck på play) och följ en bit bärnsten från en nordisk strand hela vägen till Medelhavet. Den åkte sällan med en enda resenär &ndash; oftast byttes den från by till by, i många led. Och lägg märke till vad som samtidigt vandrar åt andra hållet.</p>
+  <div class="mapbox">
+    <svg viewBox="0 0 460 400" role="img" aria-label="Förenklad karta över Europa med en handelsväg från Sydskandinavien över Östersjön, uppför floderna, över Alperna till Podalen i Italien och vidare till Grekland. En bärnstenspärla följer vägen söderut och en bronstacka norrut.">
+      <defs>
+        <linearGradient id="seagrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--sea)"/>
+          <stop offset="1" style="stop-color:var(--sea2)"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="460" height="400" fill="url(#seagrad)"/>
+      <g stroke="var(--seawave)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".8">
+        <path d="M30 86 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M150 300 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M60 206 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M340 356 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M400 80 q7 -5 14 0 q7 5 14 0"/>
+      </g>
+      <path class="plainland" d="M404 316 L428 308 L452 312 L458 352 L444 378 L420 372 L408 346 Z"/>
+      <path class="plainland" d="M348 288 L376 274 L414 272 L438 282 L432 302 L398 312 L362 308 Z"/>
+      <g class="plainland"><path d="M294 306 L314 300 L324 318 L310 340 L296 330 Z"/><ellipse cx="318" cy="354" rx="9" ry="3.5"/></g>
+      <path class="plainland" d="M280 250 L306 246 L330 254 L338 278 L326 300 L302 294 L286 304 L276 280 Z"/>
+      <g class="plainland"><path d="M214 258 L236 250 L252 262 L246 280 L258 300 L274 318 L268 334 L250 328 L238 306 L226 286 L212 272 Z"/><ellipse cx="246" cy="348" rx="12" ry="6"/><ellipse cx="200" cy="312" rx="7" ry="12"/></g>
+      <path class="plainland" d="M332 158 L368 138 L420 130 L458 138 L458 248 L420 260 L376 256 L342 242 L330 208 Z"/>
+      <path class="plainland" d="M190 252 L186 214 L196 184 L226 168 L268 162 L304 170 L324 192 L328 224 L310 248 L268 258 L224 262 Z"/>
+      <path class="plainland" d="M100 256 L98 224 L118 202 L158 196 L184 210 L188 240 L170 262 L128 268 Z"/>
+      <path class="plainland" d="M32 290 L60 268 L98 262 L112 282 L104 310 L118 322 L106 342 L70 348 L40 330 Z"/>
+      <g class="plainland"><path d="M126 100 L146 96 L156 118 L150 148 L136 170 L120 160 L126 134 Z"/><path d="M94 128 L112 122 L118 140 L106 156 L90 146 Z"/></g>
+      <g class="plainland"><path d="M218 92 L238 76 L262 72 L282 84 L278 108 L258 126 L234 128 L220 112 Z"/><path d="M194 122 L212 114 L222 128 L210 142 L196 138 Z"/></g>
+      <path class="plainland" d="M226 86 L218 58 L230 30 L252 10 L284 6 L306 16 L300 44 L286 66 L262 74 L238 80 Z"/>
+      <path class="plainland" d="M312 26 L344 18 L366 36 L362 70 L340 90 L316 80 L308 52 Z"/>
+      <!-- handelsvägen -->
+      <path id="routePath" class="route" d="M243 120 C252 140 254 154 259 167 C267 186 267 190 263 205 C259 222 253 228 248 240 C244 250 241 255 241 260 C245 265 249 264 252 265 C262 273 266 286 272 300 C278 312 292 318 303 321"/>
+      <path id="routeDone" class="routeDone" d=""/>
+      <!-- stationspunkter -->
+      <g fill="var(--muted)">
+        <circle cx="243" cy="120" r="3"/><circle cx="262" cy="196" r="3"/><circle cx="243" cy="252" r="3"/><circle cx="252" cy="265" r="3"/><circle cx="303" cy="321" r="3"/>
+      </g>
+      <!-- markörer -->
+      <g id="bronzeDot" opacity="0"><rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="var(--bronze)" stroke="var(--surface)" stroke-width="1.5"/></g>
+      <g id="amberDot"><circle r="10" fill="none" stroke="var(--amber)" opacity=".4" stroke-width="2"/><circle r="6" fill="var(--amber)" stroke="var(--surface)" stroke-width="1.5"/></g>
+      <!-- etiketter -->
+      <text x="258" y="60" font-size="13" fill="var(--muted)">härifrån kommer bärnstenen</text>
+      <path d="M256 66 L246 86" stroke="var(--muted)" stroke-width="1.5" fill="none"/>
+      <path d="M245 76 L246 87 L255 80" stroke="var(--muted)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+      <text x="210" y="243" font-size="11" fill="var(--muted)" text-anchor="end">Alperna</text>
+      <text x="206" y="296" font-size="13" fill="var(--muted)" text-anchor="end">Italien</text>
+      <text x="316" y="340" font-size="11" fill="var(--muted)">Mykene</text>
+      <text x="150" y="368" font-size="13" fill="var(--muted)" font-style="italic">Medelhavet</text>
+      <text x="12" y="394" font-size="12" fill="var(--muted)">Förenklad karta &ndash; ungefärlig väg</text>
+    </svg>
+    <div class="map-controls">
+      <div class="yearline">
+        <p class="yearlabel" id="stageName">Stranden</p>
+        <button type="button" id="playBtn" class="play" aria-label="Spela upp resan">&#9654;</button>
+      </div>
+      <input type="range" id="timeSlider" min="0" max="120" value="0" step="1"
+        aria-label="Dra för att följa bärnstenens resa från Östersjön till Medelhavet">
+      <div class="ticks" aria-hidden="true"><span>Stranden</span><span>Floderna</span><span>Alperna</span><span>Italien</span><span>Medelhavet</span></div>
+      <p class="legend"><span><span class="dot"></span>bärnsten söderut</span><span><span class="sq"></span>brons norrut</span></p>
+      <p class="epoch" id="epochText" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section id="hurvetvi">
+  <p class="kicker">Detektivarbetet</p>
+  <h2>Hur vet vi att det gick till så?</h2>
+  <p>Fortfarande kunde ingen här skriva. Men metall, ull och till och med människokroppar bär på dolda spår av var de kommer ifrån. Tryck på fynden och se vad de avslöjar.</p>
+  <div class="finds">
+    <div class="find" id="find1">
+      <button type="button" aria-expanded="false" aria-controls="panel1">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M4 9 L13 4 L22 9 M8 7 V20 M18 7 V20 M8 13 H18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Metallens fingeravtryck
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel1" hidden>
+        <p><strong>Vad det avslöjar:</strong> varje koppargruva har sin egen blandning av spårämnen &ndash; som ett fingeravtryck. När forskare mäter kopparn i skandinaviska bronsföremål pekar spåren mot Alperna, Sardinien och Spanien. Tennet kom troligen ända från Cornwall i England. Varenda bronsyxa som hittas här är alltså ett kvitto på långväga handel.</p>
+      </div>
+    </div>
+    <div class="find" id="find2">
+      <button type="button" aria-expanded="false" aria-controls="panel2">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="6" r="3" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M13 9 V15 M13 11 L7 14 M13 11 L19 14 M8 23 C9 18 17 18 18 23 M8 23 H18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Flickan i ekkistan
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel2" hidden>
+        <p><strong>Vad hon avslöjar:</strong> i Egtved i Danmark hittades en kista gjord av en urholkad ekstam. I den låg en flicka, 16&ndash;18 år, begravd en sommardag för ungefär 3 400 år sedan &ndash; blommorna i kistan var i full blom. Ekens syra bevarade hennes ullkläder: en kort tröja och en kjol av snören, och på magen en bronsplatta med spiraler, som en liten sol. Spårämnen i hennes hår antyder att hon kan ha vuxit upp långt söderut och rest hit &ndash; men där är forskarna oense. Säkert är att hennes värld var full av långväga förbindelser.</p>
+        <img src="bilder/03/egtved.jpg" alt="Egtvedflickans bevarade dräkt: en brun ulltröja och en kjol av hängande snören, mot vit bakgrund." width="715" height="975" loading="lazy">
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:DO-4368-Egtvedpigens_dragt.jpg">Egtvedflickans riktiga kläder, 3 400 år gamla (Nationalmuseet, Köpenhamn). Foto: Roberto Fortuna &amp; Kira Ursem &middot; CC BY-SA 2.5</a>
+      </div>
+    </div>
+    <div class="find" id="find3">
+      <button type="button" aria-expanded="false" aria-controls="panel3">
+        <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M6 22 C4 16 6 10 12 8 C17 6 20 8 21 5 M21 5 C22 8 20 10 17 10" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="6" cy="22" r="3" fill="none" stroke="var(--accent)" stroke-width="2"/></svg>
+        Lurarna i mossen
+        <span class="chev" aria-hidden="true">&#9656;</span>
+      </button>
+      <div class="panel" id="panel3" hidden>
+        <p><strong>Vad de avslöjar:</strong> år 1797 hittades sex jättelika blåshorn av brons i en mosse på Själland &ndash; lurar, över två meter långa, gjutna i delar av mästersmeder. Det går att spela på dem än idag. Ingen tappar sex lurar av misstag: de lades i mossen med flit, kanske som gåva till högre makter &ndash; det är en tolkning. Och på hällristningarna syns just lurblåsare!</p>
+        <img src="bilder/03/lur.jpg" alt="En lång svängd bronslur med rund dekorerad ljudskiva, upphängd mot grågrön vägg i ett museum." width="600" height="1188" loading="lazy">
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:-1300_Lure_Brudevaelte_anagoria.JPG">Lur från Brudevælte, ca 3 000 år gammal (Nationalmuseet, Köpenhamn). Foto: Anagoria &middot; CC BY 3.0</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="italien">
+  <div class="italy">
+    <p class="kicker">Samtidigt i Italien</p>
+    <h2>Pärlverkstäderna vid Po</h2>
+    <p>Först: minns du Ötzis kopparyxa från förra lektionen? Forskare har mätt även den kopparns fingeravtryck &ndash; den kom från Toscana i Italien, många dagsmarscher från där han dog. Redan tusen år före bronsåldern var metall alltså på vandring genom Europa.</p>
+    <p>Och bärnstenen från våra stränder? Den kom fram. På Poslätten i norra Italien låg på bronsåldern byar byggda på träpålar, och mot slutet av epoken, för ungefär 3 100 år sedan, växte platsen Frattesina nära Pos mynning fram som en riktig verkstadsort. Där har arkeologer grävt fram verkstäder för glas och elfenben &ndash; och tusentals bitar bärnsten, som kemiska analyser visar kommer från Östersjön. En sten som ett barn kanske plockade på en strand i Norden slipades där till en pärla i ett italienskt halsband. Nordisk bärnsten har till och med hittats i kungagravar i Mykene i Grekland.</p>
+    <p class="note">Ötzi levde långt före bronsåldern och Frattesina blomstrade mot dess slut &ndash; årtalen skiljer sig alltså åt. Men vägarna över Alperna är desamma, åt båda hållen.</p>
+  </div>
+</section>
+
+<section id="prata">
+  <p class="kicker">Prata tillsammans</p>
+  <h2>Tre saker att fundera på</h2>
+  <ol class="talk">
+    <li>Människor i söder bytte bort hårt, blänkande brons mot en sten som mest är vacker. Varför då, tror du? Vad gör något värdefullt &ndash; att det är användbart, vackert eller svårt att få tag på?</li>
+    <li>Skeppet är hällristningarnas vanligaste bild, fast de flesta som ristade nog aldrig reste långt. Varför ristar man in sådant som känns stort och viktigt? Vad skulle du rista på er häll?</li>
+    <li>Solvagnen <em>vet</em> vi hur den ser ut &ndash; det är belägg. Att solen red på ett skepp om natten var vad människor då kanske <em>trodde</em> &ndash; det är tolkning. Solen gav dem skörd, värme och liv. Vad i naturen känns viktigast i ditt liv, och hur skulle du visa det i en enda bild?</li>
+  </ol>
+</section>
+
+<section id="ord">
+  <p class="kicker">Tre svenska ord</p>
+  <h2>Ta med dig orden</h2>
+  <div class="words">
+    <div class="word"><b>brons</b><span>en blandning av koppar och tenn &ndash; hårdare och finare än båda var för sig</span></div>
+    <div class="word"><b>bärnsten</b><span>kåda från urgamla träd som hårdnat till sten &ndash; havet spolar upp den på stranden</span></div>
+    <div class="word"><b>hällristning</b><span>bild som knackats in i en slät berghäll, till exempel skepp, solar och människor</span></div>
+  </div>
+  <div class="retell">
+    <p><strong>Till sist:</strong> berätta lektionen med egna ord, som om du berättade den för en kompis. Börja gärna med: <em>&rdquo;Tänk dig en strand efter en storm, där något gult blänker i tången&hellip;&rdquo;</em></p>
+  </div>
+</section>
+
+<details class="parents">
+  <summary>För föräldern: källor, tidsplan och osäkerheter</summary>
+  <h3>Förslag på tidsplan (ca 10 min)</h3>
+  <ul>
+    <li>1 min &ndash; gåtan om berget utan metall och bärnstenen</li>
+    <li>2 min &ndash; berättelsen om skeppet i berget; titta på de tre bilderna</li>
+    <li>3 min &ndash; kartan: följ bärnstenen söderut och upptäck bronset på väg norrut</li>
+    <li>2 min &ndash; fyndkorten (särskilt flickan i ekkistan)</li>
+    <li>1 min &ndash; Italien: Frattesinas verkstäder och Ötzis yxa</li>
+    <li>1 min &ndash; samtalsfrågorna, orden och återberättandet</li>
+  </ul>
+  <h3>Källor</h3>
+  <ul>
+    <li>Vitlycke museum och Riksantikvarieämbetet: världsarvet Tanums hällristningar; nordisk bronsålder ca 1700&ndash;500 f.Kr. (vitlyckemuseum.se)</li>
+    <li>Ling m.fl. (Göteborgs universitet), blyisotop- och spårämnesanalyser: kopparn i skandinaviska bronsföremål kom främst från Alperna, Sardinien och Iberiska halvön</li>
+    <li>Berger m.fl. 2019, <em>PLOS ONE</em>: tenn i bronsålderns Medelhavsvärld spårat till Cornwall</li>
+    <li>Nationalmuseet i Köpenhamn (natmus.dk): Solvagnen från Trundholm (ca 1400 f.Kr.), Egtvedflickan (begravd sommaren 1370 f.Kr., daterad via årsringar i ekkistan), Brudevælte-lurarna (funna 1797)</li>
+    <li>Frei m.fl. 2015, <em>Scientific Reports</em>: strontiumisotoper tyder på att Egtvedflickan växte upp utanför Danmark, möjligen Schwarzwaldtrakten; Thomsen &amp; Andreasen 2019 invänder att kalkning av åkrar kan ge liknande värden lokalt</li>
+    <li>Beck; Bellintani m.fl.: bärnstenen i Frattesina och i Mykenes schaktgravar är baltisk (succinit, infrarödanalys)</li>
+    <li>Artioli m.fl. 2017, <em>PLOS ONE</em>: kopparn i Ötzis yxa kom från södra Toscana</li>
+  </ul>
+  <h3>Bildkällor (alla fria licenser, länkade i bildtexterna)</h3>
+  <ul>
+    <li>Rå baltisk bärnsten &ndash; foto W.carter, CC BY-SA 4.0</li>
+    <li>Skeppsristning, Vitlycke/Tanum &ndash; foto Boberger, CC BY-SA 3.0</li>
+    <li>Berghäll med ristningar, Tanum &ndash; foto Fred J, public domain</li>
+    <li>Solvagnen från Trundholm &ndash; foto Nationalmuseet, Danmark, CC BY-SA 3.0</li>
+    <li>Egtvedflickans dräkt &ndash; foto Roberto Fortuna &amp; Kira Ursem, Nationalmuseet, CC BY-SA 2.5</li>
+    <li>Lur från Brudevælte &ndash; foto Anagoria, CC BY 3.0</li>
+  </ul>
+  <h3>Osäkerheter och förenklingar</h3>
+  <ul>
+    <li>Den röda färgen i hällristningarna är modern ifyllnad för besökare; ursprungligen var bilderna bara huggna i berget, och forskare är försiktiga med vilka som hör ihop.</li>
+    <li>Kartans väg är en rekonstruktion utifrån var fynd hittats (&rdquo;bärnstensvägarna&rdquo;); exakta rutter varierade, och bytena skedde oftast i många led under lång tid &ndash; en enskild sten kunde vara på väg i generationer. Scenens hemvändande morbror är alltså en förenkling.</li>
+    <li>Sverige har kopparmalm (Falun bröts först långt senare), men analyserna tyder på att bronsålderns metall ändå var importerad.</li>
+    <li>Egtvedflickans uppväxtort är omdebatterad (se källorna). Att hennes kläder och föremål ingick i långväga nätverk är däremot okontroversiellt.</li>
+    <li>Solvagnens betydelse, nattskeppet och lurarna som offer är tolkningar; föremålen och deras ålder är belägg. Berättelsescenen är fiktion byggd på ristningarna och fynden &ndash; inga bronsåldersbåtar har bevarats här, så skeppens utseende kommer från bilderna.</li>
+    <li>Även skinn, sälprodukter och annat kan ha bytts söderut; bärnstenen är det vi säkert kan spåra.</li>
+    <li>I norra Skandinavien fortsatte jakt och fiske att vara grunden; samisk historia får eget utrymme i del 6.</li>
+  </ul>
+</details>
+
+<footer>
+  <span>Del 1 &middot; Lektion 3 av 20</span>
+  <span><a href="https://claude.ai/artifact/MmrgHrKy5dhgDpu8m9HcQ9">&larr; Lektion 2: De första bönderna</a></span>
+  <span>Nästa gång: Från järnålder till vikingatid</span>
+</footer>
+
+</main>
+<script>
+(function(){
+  var slider = document.getElementById('timeSlider');
+  var stageName = document.getElementById('stageName');
+  var epochText = document.getElementById('epochText');
+  var playBtn = document.getElementById('playBtn');
+  var route = document.getElementById('routePath');
+  var routeDone = document.getElementById('routeDone');
+  var amber = document.getElementById('amberDot');
+  var bronze = document.getElementById('bronzeDot');
+  var L = route.getTotalLength();
+
+  function stageFor(v){
+    if (v < 18) return ['Stranden', '<strong>På stranden efter stormen.</strong> Barn och vuxna plockar bärnsten ur tången på Jyllands och Skånes stränder. Bitarna samlas i säckar – byns skatt.'];
+    if (v < 45) return ['Över havet, uppför floderna', '<strong>Från by till by.</strong> Bärnstenen byts vidare söderut, längs floder genom Europas skogar. Den som bär den nu har aldrig sett havet den kom ifrån.'];
+    if (v < 68) return ['Alperna', '<strong>Genom bergen.</strong> Över alppassen – samma trakter där Ötzi vandrade tusen år tidigare. Här möter bärnstenen koppar och tenn på väg åt andra hållet.'];
+    if (v < 95) return ['Podalen i Italien', '<strong>Verkstäderna vid Po.</strong> I Frattesina slipas nordisk bärnsten till pärlor, bredvid verkstäder för glas och elfenben. En bit av Östersjön blir ett italienskt halsband.'];
+    return ['Medelhavet', '<strong>Framme.</strong> Bärnsten från Norden har hittats ända i Mykenes kungagravar i Grekland. Och bronstackan? Den är samtidigt framme på en nordisk strand – där resan började.'];
+  }
+
+  function render(){
+    var v = +slider.value;
+    var f = v / 120;
+    var p = route.getPointAtLength(f * L);
+    amber.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
+    routeDone.setAttribute('d', route.getAttribute('d'));
+    routeDone.setAttribute('stroke-dasharray', (f * L).toFixed(1) + ' ' + L.toFixed(1));
+    if (v >= 60){
+      var f2 = 1 - (v - 60) / 60;
+      var p2 = route.getPointAtLength(f2 * L);
+      bronze.setAttribute('transform', 'translate(' + (p2.x + 6).toFixed(1) + ' ' + (p2.y - 6).toFixed(1) + ')');
+      bronze.setAttribute('opacity', '1');
+    } else {
+      bronze.setAttribute('opacity', '0');
+    }
+    var s = stageFor(v);
+    stageName.textContent = s[0];
+    epochText.innerHTML = s[1];
+  }
+
+  // Uppspelning
+  var playing = false, rafId = null, pos = 0;
+  function setPlaying(p){
+    playing = p;
+    playBtn.innerHTML = p ? '&#10074;&#10074;' : '&#9654;';
+    playBtn.setAttribute('aria-label', p ? 'Pausa' : 'Spela upp resan');
+    if (p){ pos = +slider.value; rafId = requestAnimationFrame(tick); }
+    else if (rafId) cancelAnimationFrame(rafId);
+  }
+  function tick(){
+    if (!playing) return;
+    pos += 0.25;
+    if (pos >= 120){ pos = 120; slider.value = 120; render(); setPlaying(false); return; }
+    slider.value = Math.round(pos);
+    render();
+    rafId = requestAnimationFrame(tick);
+  }
+  playBtn.addEventListener('click', function(){
+    if (!playing && +slider.value >= 120) { slider.value = 0; render(); }
+    setPlaying(!playing);
+  });
+  slider.addEventListener('input', function(){ if (playing) setPlaying(false); render(); });
+  render();
+
+  // Fyndkorten
+  document.querySelectorAll('.find > button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+      btn.parentElement.classList.toggle('open', !open);
+    });
+  });
+})();
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('themeBtn');
+  if (!btn) return;
+  function effective(){
+    var t = root.getAttribute('data-theme');
+    if (t === 'light' || t === 'dark') return t;
+    return (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function icon(){ btn.textContent = effective() === 'dark' ? '☀' : '☾'; }
+  try{
+    var saved = localStorage.getItem('historia-tema');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  }catch(e){}
+  icon();
+  btn.addEventListener('click', function(){
+    var next = effective() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('historia-tema', next); }catch(e){}
+    icon();
+  });
+})();
+</script>
+</content>
+</invoke>

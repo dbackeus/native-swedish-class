@@ -16,4 +16,8 @@ krediter och länkar finns i varje lektions bildtexter och föräldradel
 (Lascaux: public domain · Ekornavallen: Bengt A. Lundberg/RAÄ, CC BY 2.5 ·
 Montelius 1877: public domain · Flintyxa Karleby: Achird, CC BY-SA 3.0 ·
 Skarpsallingkärlet: Knud Winckelmann, CC BY-SA 3.0 · Ötzis kopparyxa:
-AleksandrLaptev, CC BY-SA 4.0 · Ötzis sko: Donja Malhotra, CC BY-SA 2.5).
+AleksandrLaptev, CC BY-SA 4.0 · Ötzis sko: Donja Malhotra, CC BY-SA 2.5 ·
+Baltisk bärnsten: W.carter, CC BY-SA 4.0 · Skeppsristning Vitlycke: Boberger,
+CC BY-SA 3.0 · Berghäll Tanum: Fred J, public domain · Solvagnen:
+Nationalmuseet Danmark, CC BY-SA 3.0 · Egtvedflickans dräkt: Roberto Fortuna
+& Kira Ursem/Nationalmuseet, CC BY-SA 2.5 · Brudevælte-lur: Anagoria, CC BY 3.0).
