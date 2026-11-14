@@ -4,7 +4,7 @@ Interaktiva tiominuterslektioner i svensk historia för hemspråksundervisning
 (en nioåring och hans pappa). Fokus: människors vardag, kulturmöten och hur
 Norden hänger ihop med resten av världen.
 
-- **Publik sajt:** https://dbackeus.github.io/svensk-historia/
+- **Publik sajt:** https://dbackeus.github.io/native-swedish-class/
 - Lektionerna är fristående HTML-filer i repots rot (utan dokumentskal, så att
   de även kan publiceras som Claude-artefakter).
 - `./build.sh` paketerar publika kopior till `docs/`, som GitHub Pages serverar.
