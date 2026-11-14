@@ -312,7 +312,7 @@ footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); colo
   <h2>Följ bärnstenens resa</h2>
   <p>Dra i reglaget (eller tryck på play) och följ en bit bärnsten från en nordisk strand hela vägen till Medelhavet. Den åkte sällan med en enda resenär &ndash; oftast byttes den från by till by, i många led. Och lägg märke till vad som samtidigt vandrar åt andra hållet.</p>
   <div class="mapbox">
-    <svg viewBox="0 0 460 400" role="img" aria-label="Förenklad karta över Europa med en handelsväg från Sydskandinavien över Östersjön, uppför floderna, över Alperna till Podalen i Italien och vidare till Grekland. En bärnstenspärla följer vägen söderut och en bronstacka norrut.">
+    <svg viewBox="0 0 460 400" role="img" aria-label="Förenklad karta över Europa med en handelsväg från Skåne genom Centraleuropa, över Alperna till Podalen i Italien och vidare längs Adriatiska havet till Mykene i Grekland. En bärnstenspärla följer vägen söderut och en bronstacka norrut.">
       <defs>
         <linearGradient id="seagrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" style="stop-color:var(--sea)"/>
@@ -321,43 +321,55 @@ footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); colo
       </defs>
       <rect x="0" y="0" width="460" height="400" fill="url(#seagrad)"/>
       <g stroke="var(--seawave)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".8">
-        <path d="M30 86 q7 -5 14 0 q7 5 14 0"/>
-        <path d="M150 300 q7 -5 14 0 q7 5 14 0"/>
-        <path d="M60 206 q7 -5 14 0 q7 5 14 0"/>
-        <path d="M340 356 q7 -5 14 0 q7 5 14 0"/>
-        <path d="M400 80 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M50 44 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M30 222 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M331 24 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M156 324 q7 -5 14 0 q7 5 14 0"/>
+        <path d="M310 358 q7 -5 14 0 q7 5 14 0"/>
       </g>
-      <path class="plainland" d="M404 316 L428 308 L452 312 L458 352 L444 378 L420 372 L408 346 Z"/>
-      <path class="plainland" d="M348 288 L376 274 L414 272 L438 282 L432 302 L398 312 L362 308 Z"/>
-      <g class="plainland"><path d="M294 306 L314 300 L324 318 L310 340 L296 330 Z"/><ellipse cx="318" cy="354" rx="9" ry="3.5"/></g>
-      <path class="plainland" d="M280 250 L306 246 L330 254 L338 278 L326 300 L302 294 L286 304 L276 280 Z"/>
-      <g class="plainland"><path d="M214 258 L236 250 L252 262 L246 280 L258 300 L274 318 L268 334 L250 328 L238 306 L226 286 L212 272 Z"/><ellipse cx="246" cy="348" rx="12" ry="6"/><ellipse cx="200" cy="312" rx="7" ry="12"/></g>
-      <path class="plainland" d="M332 158 L368 138 L420 130 L458 138 L458 248 L420 260 L376 256 L342 242 L330 208 Z"/>
-      <path class="plainland" d="M190 252 L186 214 L196 184 L226 168 L268 162 L304 170 L324 192 L328 224 L310 248 L268 258 L224 262 Z"/>
-      <path class="plainland" d="M100 256 L98 224 L118 202 L158 196 L184 210 L188 240 L170 262 L128 268 Z"/>
-      <path class="plainland" d="M32 290 L60 268 L98 262 L112 282 L104 310 L118 322 L106 342 L70 348 L40 330 Z"/>
-      <g class="plainland"><path d="M126 100 L146 96 L156 118 L150 148 L136 170 L120 160 L126 134 Z"/><path d="M94 128 L112 122 L118 140 L106 156 L90 146 Z"/></g>
-      <g class="plainland"><path d="M218 92 L238 76 L262 72 L282 84 L278 108 L258 126 L234 128 L220 112 Z"/><path d="M194 122 L212 114 L222 128 L210 142 L196 138 Z"/></g>
-      <path class="plainland" d="M226 86 L218 58 L230 30 L252 10 L284 6 L306 16 L300 44 L286 66 L262 74 L238 80 Z"/>
-      <path class="plainland" d="M312 26 L344 18 L366 36 L362 70 L340 90 L316 80 L308 52 Z"/>
+      <!-- fastlandet: Iberia, Frankrike, Centraleuropa, Balkan, Grekland och Italien i ett -->
+      <path class="plainland" d="M22 273 L60 269 L104 272 L110 250 L100 228 L84 218 L70 211 L90 200 L123 192 L147 172 L180 146 L214 133 L217 104 L222 88 L235 81 L240 97 L233 111 L241 124 L281 132 L337 126 L361 111 L391 94 L403 67 L438 52 L460 47 L460 245 L443 252 L436 274 L449 294 L460 301 L460 310 L421 309 L399 313 L391 331 L387 344 L383 353 L385 363 L372 369 L359 361 L362 347 L353 341 L351 331 L342 306 L308 274 L281 252 L264 247 L267 257 L277 277 L288 291 L306 299 L327 316 L331 323 L317 323 L306 338 L302 350 L294 345 L289 329 L283 315 L263 296 L242 281 L221 263 L200 273 L177 276 L161 281 L150 301 L129 331 L117 352 L100 363 L63 371 L40 367 L24 359 L16 336 L25 305 Z"/>
+      <!-- Skandinaviska halvön -->
+      <path class="plainland" d="M209 0 L201 14 L182 31 L184 51 L196 69 L204 80 L217 75 L230 70 L239 72 L243 64 L253 81 L263 98 L271 107 L276 117 L284 107 L300 92 L312 84 L319 71 L331 61 L319 44 L321 24 L332 8 L336 0 Z"/>
+      <!-- Finland -->
+      <path class="plainland" d="M371 0 L364 16 L357 33 L363 46 L377 52 L394 54 L413 50 L434 47 L452 49 L460 44 L460 0 Z"/>
+      <!-- Brittiska öarna -->
+      <path class="plainland" d="M82 60 L95 74 L101 90 L96 104 L104 118 L112 136 L122 150 L133 154 L130 168 L114 176 L94 180 L70 184 L79 170 L66 158 L73 147 L84 140 L80 128 L68 118 L63 102 L61 84 L70 70 Z"/>
+      <path class="plainland" d="M14 127 L49 123 L56 140 L49 161 L26 167 L8 147 Z"/>
+      <!-- danska öar och Gotland -->
+      <ellipse class="plainland" cx="251" cy="109" rx="6" ry="5"/>
+      <ellipse class="plainland" cx="241" cy="111" rx="3.5" ry="4"/>
+      <ellipse class="plainland" cx="336" cy="86" rx="3.5" ry="7"/>
+      <!-- Korsika, Sardinien, Sicilien, Kreta -->
+      <path class="plainland" d="M219 279 L230 284 L226 301 L217 297 Z"/>
+      <path class="plainland" d="M215 306 L233 311 L231 333 L216 334 Z"/>
+      <path class="plainland" d="M252 347 L284 343 L280 361 L256 356 Z"/>
+      <path class="plainland" d="M387 378 L417 381 L404 388 L390 385 Z"/>
+      <!-- Anatolien och Nordafrika i kanterna -->
+      <path class="plainland" d="M460 312 L433 322 L427 340 L434 359 L448 371 L460 369 Z"/>
+      <path class="plainland" d="M0 386 L55 379 L120 391 L170 393 L228 372 L237 361 L247 372 L300 391 L380 396 L460 393 L460 400 L0 400 Z"/>
+      <!-- Alperna -->
+      <path d="M199 268 l7 -9 7 9 M216 261 l7 -9 7 9 M233 255 l7 -9 7 9 M246 251 l7 -9 7 9" stroke="var(--coast)" stroke-width="1.8" fill="none" stroke-linejoin="round" opacity=".9"/>
       <!-- handelsvägen -->
-      <path id="routePath" class="route" d="M243 120 C252 140 254 154 259 167 C267 186 267 190 263 205 C259 222 253 228 248 240 C244 250 241 255 241 260 C245 265 249 264 252 265 C262 273 266 286 272 300 C278 312 292 318 303 321"/>
+      <path id="routePath" class="route" d="M276 117 C272 124 269 129 267 135 C262 157 257 176 254 195 C251 214 249 230 246 246 C245 251 248 254 253 256 C259 258 264 257 267 258 C274 268 282 273 291 277 C300 283 306 288 309 293 C315 300 320 301 326 306 C333 312 337 320 342 328 C346 335 349 342 352 350 C354 358 357 368 362 375 C367 379 373 376 377 369 C379 363 378 357 375 352"/>
       <path id="routeDone" class="routeDone" d=""/>
       <!-- stationspunkter -->
       <g fill="var(--muted)">
-        <circle cx="243" cy="120" r="3"/><circle cx="262" cy="196" r="3"/><circle cx="243" cy="252" r="3"/><circle cx="252" cy="265" r="3"/><circle cx="303" cy="321" r="3"/>
+        <circle cx="276" cy="117" r="3"/><circle cx="254" cy="195" r="3"/><circle cx="246" cy="246" r="3"/><circle cx="267" cy="258" r="3"/><circle cx="375" cy="351" r="3"/>
       </g>
       <!-- markörer -->
       <g id="bronzeDot" opacity="0"><rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="var(--bronze)" stroke="var(--surface)" stroke-width="1.5"/></g>
       <g id="amberDot"><circle r="10" fill="none" stroke="var(--amber)" opacity=".4" stroke-width="2"/><circle r="6" fill="var(--amber)" stroke="var(--surface)" stroke-width="1.5"/></g>
       <!-- etiketter -->
-      <text x="258" y="60" font-size="13" fill="var(--muted)">härifrån kommer bärnstenen</text>
-      <path d="M256 66 L246 86" stroke="var(--muted)" stroke-width="1.5" fill="none"/>
-      <path d="M245 76 L246 87 L255 80" stroke="var(--muted)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
-      <text x="210" y="243" font-size="11" fill="var(--muted)" text-anchor="end">Alperna</text>
-      <text x="206" y="296" font-size="13" fill="var(--muted)" text-anchor="end">Italien</text>
-      <text x="316" y="340" font-size="11" fill="var(--muted)">Mykene</text>
-      <text x="150" y="368" font-size="13" fill="var(--muted)" font-style="italic">Medelhavet</text>
+      <text x="136" y="56" font-size="12.5" fill="var(--muted)" text-anchor="middle">härifrån kommer</text>
+      <text x="136" y="71" font-size="12.5" fill="var(--muted)" text-anchor="middle">bärnstenen</text>
+      <path d="M158 79 C180 89 196 94 209 98" stroke="var(--muted)" stroke-width="1.5" fill="none"/>
+      <path d="M201 92 L210 99 L199 102" stroke="var(--muted)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+      <text x="228" y="236" font-size="11" fill="var(--muted)" text-anchor="middle">Alperna</text>
+      <text x="257" y="322" font-size="12" fill="var(--muted)" text-anchor="middle">Italien</text>
+      <text x="335" y="104" font-size="11.5" fill="var(--muted)" text-anchor="middle" font-style="italic">Östersjön</text>
+      <text x="185" y="351" font-size="13" fill="var(--muted)" text-anchor="middle" font-style="italic">Medelhavet</text>
+      <text x="391" y="340" font-size="10.5" fill="var(--muted)">Mykene</text>
       <text x="12" y="394" font-size="12" fill="var(--muted)">Förenklad karta &ndash; ungefärlig väg</text>
     </svg>
     <div class="map-controls">
