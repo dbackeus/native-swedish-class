@@ -8,6 +8,8 @@ Norden hänger ihop med resten av världen.
 - Lektionerna är fristående HTML-filer i repots rot (utan dokumentskal, så att
   de även kan publiceras som Claude-artefakter).
 - `./build.sh` paketerar publika kopior till `docs/`, som GitHub Pages serverar.
+- Nya lektioner genereras enligt [LEKTIONSMALL.md](LEKTIONSMALL.md)
+  (struktur, omfång, designkontrakt och publiceringschecklista).
 
 ## Bildkällor
 
