@@ -22,4 +22,10 @@ AleksandrLaptev, CC BY-SA 4.0 · Ötzis sko: Donja Malhotra, CC BY-SA 2.5 ·
 Baltisk bärnsten: W.carter, CC BY-SA 4.0 · Skeppsristning Vitlycke: Boberger,
 CC BY-SA 3.0 · Berghäll Tanum: Fred J, public domain · Solvagnen:
 Nationalmuseet Danmark, CC BY-SA 3.0 · Egtvedflickans dräkt: Roberto Fortuna
-& Kira Ursem/Nationalmuseet, CC BY-SA 2.5 · Brudevælte-lur: Anagoria, CC BY 3.0).
+& Kira Ursem/Nationalmuseet, CC BY-SA 2.5 · Brudevælte-lur: Anagoria, CC BY 3.0 ·
+Sjömalm Dunshammar: Dependability, CC BY-SA 3.0 ·
+Järnklump: Morgan Riley, CC BY-SA 3.0 ·
+Långhuset Gene fornby: Ångermanlands fornminnesförening, CC BY-SA 4.0 ·
+Kylverstenen: Helena Bonnevier/SHM, CC BY-SA 4.0 · Mynt från Sigdes:
+Rosa Norström 1907, public domain · Blästerugnsfoto: Dependability,
+CC BY-SA 4.0).
