@@ -19,6 +19,12 @@ strukturen och omfånget nedan.
   teckningar likaså.
 - **Moderna gränser och nationella identiteter framställs aldrig som eviga.**
   Skriv "det som nu är Sverige", inte "Sverige" om förhistorisk tid.
+- **Det som nu är Sverige är fokuspunkten.** Fynd från grannländerna
+  (Danmark, Norge, Finland …) får användas när de är de bästa beläggen,
+  men lektionen måste då uttryckligen förklara kopplingen till Sverige —
+  t.ex. att Danmark och Sydsverige tillhörde samma nordiska
+  bronsålderskultur, så att ett danskt fynd berättar om livet även här.
+  Kan kopplingen inte beläggas: välj ett annat fynd.
 - **Hitta aldrig på fakta, källor eller bilder.** Osäkert = säg att det är osäkert.
 
 ## Serien
@@ -35,8 +41,12 @@ föregående och nästa.
 
 ## Lektionens struktur och omfång
 
-Riktmärke: **max ~750 ord barnvänd text totalt** (lektion 3 hade ~1 300,
+Riktmärke: **max ~700 ord barnvänd text totalt** (lektion 3 hade ~1 300,
 vilket blev för långt). Ordantalen nedan är tak, inte mål.
+
+Borttaget jämfört med lektion 1–3 (för att korta lektionen — lägg inte
+tillbaka dem): diskussionsfrågorna ("Tre saker att fundera på"),
+återberätta-uppmaningen och fyndkorten som UI-element.
 
 1. **Hero** (~80 ord) — Del/lektion + titel, epokanpassad SVG-illustration,
    kurstidslinje med "här är vi"-markering, 2–3 meningars ingress med en
@@ -44,22 +54,23 @@ vilket blev för långt). Ordantalen nedan är tak, inte mål.
 2. **Gåtan/kroken** (~90 ord) — ett konkret mysterium eller en fråga som
    väcker nyfikenhet, gärna med en bild. Besvaras under lektionens gång.
 3. **Berättelsen** (**max 200 ord**) — en kort, levande scen. Taggas
-   "Påhittad scen" om den är uppdiktad. **Max 1–2 bilder** (inte 3 som förr).
+   "Påhittad scen" om den är uppdiktad. Upp till 3 bilder är okej.
 4. **Interaktionen** — EN meningsfull interaktion (karta med slider,
-   animation e.d.). **Max 4 stationstexter à ~2 meningar.** Kartor ritas med
+   animation e.d.), i samma omfång som i lektion 1–3. Kartor ritas med
    igenkännbara europeiska kustlinjer (se lektion 3) och noten "Förenklad karta".
-5. **Hur vet vi det?** (~100 ord) — **ETT fyndkort**, inte tre: det enskilt
-   starkaste belägget, med bild. (Detta är den största nedbantningen mot
-   lektion 1–3.)
+5. **Hur vet vi det?** (**max ~120 ord**) — en kort löpande text som
+   förklarar de starkaste beläggen, gärna med en bild. **Inga kort eller
+   små rutor** — antalet belägg spelar mindre roll än textmängden och att
+   allt går att läsa rakt uppifrån och ner.
 6. **Samtidigt i Italien** (~110 ord) — en konkret, verklig koppling.
    Var tydlig om årtalen inte matchar exakt.
-7. **Att prata om** — **2 frågor** (inte 3). Öppna frågor utan facit.
-8. **Orden** — 3 svenska ord + uppmaning att återberätta med egna ord.
-9. **Föräldradelen** (`<details>`, räknas inte in i barntexten) — källor
+7. **Orden** (~40 ord) — 3 svenska ord med korta förklaringar. Ingen
+   återberätta-uppmaning.
+8. **Föräldradelen** (`<details>`, räknas inte in i barntexten) — källor
    med namn/år, föreslagen tidsplan (rikta mot 30 min), osäkerheter och
    forskardebatter, bildkällor med licenser.
-10. **Footer** — "Del X · Lektion N av 20", länk till föregående lektion,
-    "Nästa gång: …" (länk när nästa lektion finns).
+9. **Footer** — "Del X · Lektion N av 20", länk till föregående lektion,
+   "Nästa gång: …" (länk när nästa lektion finns).
 
 En cliffhanger/brygga till nästa lektion planteras gärna i slutet
 (som Ötzis yxa → bronset, bronset → järnet).
